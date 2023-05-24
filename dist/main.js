@@ -466,6 +466,83 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/modules/getdata.js":
+/*!********************************!*\
+  !*** ./src/modules/getdata.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const getdata = async () => {
+  const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getdata);
+
+/***/ }),
+
+/***/ "./src/modules/getlikes.js":
+/*!*********************************!*\
+  !*** ./src/modules/getlikes.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const getLikes = async () => {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  } return false;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getLikes);
+
+/***/ }),
+
+/***/ "./src/modules/likesforthissearch.js":
+/*!*******************************************!*\
+  !*** ./src/modules/likesforthissearch.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const likesforthissearch = async (data, likessaved) => {
+  const resolvedlikes = await likessaved;
+  const itemMap = new Map();
+  resolvedlikes.forEach((item) => {
+    itemMap.set(item.item_id, item.likes);
+  });
+  updatedLikes = data.tracks.items.map((item) => ({
+    item_id: item.id,
+    likes: itemMap.get(item.id),
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (likesforthissearch);
+
 /***/ })
 
 /******/ 	});
@@ -549,6 +626,12 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/getdata.js */ "./src/modules/getdata.js");
+/* harmony import */ var _modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/likesforthissearch.js */ "./src/modules/likesforthissearch.js");
+/* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
+
+
+
 
 // import getLikes from "./modules/gettinglikes.js";
 const artistName = 'nothing but thieves';
@@ -557,57 +640,9 @@ const musiccontainer = document.querySelector('.musiccontainer');
 const datanames = [];
 let updatedLikes = [];
 
-const likesforthissearch = async (data, likessaved) => {
-  const resolvedlikes = await likessaved;
-  const itemMap = new Map();
-  resolvedlikes.forEach((item) => {
-    itemMap.set(item.item_id, item.likes);
-  });
-  updatedLikes = data.tracks.items.map((item) => ({
-    item_id: item.id,
-    likes: itemMap.get(item.id),
-  }));
-};
-
-const getLikes = async () => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
-    method: 'GET',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-  if (response.ok) {
-    const data = await response.json();
-    return data;
-  } return false;
-};
-
-const giveLikes = async (itemidd) => {
-  const response2 = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/', {
-    method: 'POST',
-    body: JSON.stringify({
-      item_id: `${itemidd}`,
-      }),
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
-    if (response2.ok) {
-      const data = await response2;
-      return;
-    } return false;
-};
-
-const getArtist = async () => {
-  const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  const data = await response.json();
-
-  await likesforthissearch(data, getLikes());
-
+const render = async () => {
+  const data = (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
     text.classList.add('songelementontainer', 'dflex', 'flexcol');
@@ -627,7 +662,9 @@ const getArtist = async () => {
   }
 };
 
-getArtist();
+document.addEventListener('DOMContentLoaded', () => {
+  render();
+});
 })();
 
 /******/ })()
