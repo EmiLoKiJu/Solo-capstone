@@ -1,5 +1,6 @@
+import './style.css';
 const artistName = 'nothing but thieves';
-const accessToken = 'BQAdUkTVkhyBdYInR-SQ7BEnMxOr-CVFkkVldl498ajssUNvGsgIF90SZow5KGMveJZheUIPF2a_tyy5GWtQe7f2SidVTuXmBTg6GxyNHdsPyOo_rtgwE-uvelMJqGiJq1n75EkycVgLgWJQK2JrPCWVOjRmH1KOks2tI47unxgCaJgaZQp7XFf96MbhqPcCgqkMpwu6JYvjbskULNaSD5dlzKkWiCXtgF57e4ZHqQgEW26GKqS5ZdV0GM9gvFJFq_UiTrN3mMX97s-JZNmp';
+const accessToken = 'BQCgx3nrgGhYP2LJQBdYH3JUvVCSIQZrAFQoBQC4FFJZy6Z5vwtHA73-QfbKmrRM3PfvO-Af3IN_UZ7whNTQZbduw6FpKfo_0BnT3sJ5-lREPB_Nc039zUJ6Upn2Fc6e8RamQfJyVvgJe6qdjIH03elYr2DqPWhCUnJqmenFCoZjUzxgVchzS2soX675E1RD9xKiTdBpZx91emsDE8Y3oBvoYAhkptQlBfzETvJXTFM6JgJxrbKqsr6tm-fHQhNTAwBVb2996Y4ddoT8kuYS';
 const musiccontainer = document.querySelector('.musiccontainer');
 
 const getArtist = async () => {
