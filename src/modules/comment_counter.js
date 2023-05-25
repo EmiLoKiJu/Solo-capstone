@@ -4,7 +4,12 @@ const dialogCommentCount = async (dialog_content_div, item_id) => {
     try {
 
         const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
-        const data = await fetch(URL);
+        const data = await fetch(URL, {
+                method: 'GET',
+                headers: {
+                  'Content-type': 'application/json',
+                },
+              });
         const result = await data.json();
 
         const dialogCommentCount = document.createElement('p');
