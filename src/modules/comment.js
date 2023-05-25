@@ -1,4 +1,4 @@
-import dialogCommentCount from './comment_counter.js';
+import { dialogCommentCount, dialogCommentCount2 } from './comment_counter.js';
 
 export const closeDialog = (dialog_div, dialog_modal) => {
 
@@ -146,8 +146,6 @@ export const dialogDetails = (dialog_content_div, dg_title, dg_author, dg_conten
 export const addCommentInterface = async (dialog_content_div, dialog_comment_div, item_id) => {
 
     try {
-
-        await dialogCommentCount()
         
         const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments';
 
@@ -208,6 +206,9 @@ export const addCommentInterface = async (dialog_content_div, dialog_comment_div
                 document.getElementById('commenter-insight-id').value = '';
 
                 dialog_comment_div.innerHTML = '';
+
+                dialogCommentCount2(dialog_comment_div, item_id);
+
                 dialogCommentCount(dialog_comment_div, item_id);
             }
 

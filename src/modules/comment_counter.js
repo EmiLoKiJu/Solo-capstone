@@ -1,7 +1,9 @@
-const dialogCommentCount = async (dialog_content_div, item_id) => {
-
+export const dialogCommentCount = async (dialog_content_div, item_id) => {
 
     try {
+
+        dialog_content_div.innerHTML = '';
+
 
         const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
         const data = await fetch(URL, {
@@ -22,10 +24,8 @@ const dialogCommentCount = async (dialog_content_div, item_id) => {
         dialogCommentCount.style.margin = '1rem';
         dialogCommentCount.style.width = '100%';
 
-        dialog_content_div.innerHTML = '';
         dialog_content_div.appendChild(dialogCommentCount)
 
-        
         const commentBox = document.createElement('div');
         commentBox.setAttribute('id', 'commentBox');
         commentBox.style.display = 'flex';
@@ -72,4 +72,26 @@ const dialogCommentCount = async (dialog_content_div, item_id) => {
 
 };
 
-export default dialogCommentCount;
+
+export const dialogCommentCount2 = async (dialog_content_div, item_id) => {
+
+    try {
+
+        dialog_content_div.innerHTML = '';
+
+
+        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
+        const data = await fetch(URL, {
+                method: 'GET',
+                headers: {
+                  'Content-type': 'application/json',
+                },
+              });
+        const result = await data.json();
+
+        return result;
+
+    } catch (error) { return error; }
+
+};
+// export default dialogCommentCount;
