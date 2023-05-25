@@ -53,11 +53,15 @@ const render = async () => {
     const commentbutton = text.querySelector('.commentbutton');
     commentbutton.style.margin = '1rem';
     commentbutton.addEventListener('click', () => {
-      // buttonclickcomment(data.tracks.items[i]);
 
 
       const modalId = document.getElementById('modal-id');
       const dialogContent = document.getElementById('dialog-content-id');
+      const dialogComment = document.getElementById('dialog-comment-id');
+      const dialogClose = document.getElementById('dialog-close-id');
+      const dialogImg = document.getElementById('dialog-img-id');
+      const dialogDetail = document.getElementById('dialog-detail-id');
+      const dialogInput = document.getElementById('dialog-input-id');
 
       modalId.style.display = 'flex';
 
@@ -77,22 +81,18 @@ const render = async () => {
       dialogContent.style.overflowX = 'hidden';
       dialogContent.scrollTop = '0';
 
-      // window.scrollTo(0, 0);
+      dialogCommentCount(dialogComment, data.tracks.items[i].name);
 
-      dialogCommentCount(dialogContent, data.tracks.items[i].name);
-
-      closeDialog(dialogContent, modalId);
-      dialogImage(dialogContent, data.tracks.items[i].album.images[0].url);
-      // dialogDetails(dialogContent, data.tracks.items[i].name, element.author, element.content, element.date, element.url);
-      dialogDetails(dialogContent, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
+      closeDialog(dialogClose, modalId);
+      dialogImage(dialogImg, data.tracks.items[i].album.images[0].url);
+      dialogDetails(dialogDetail, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
         data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify, data.tracks.items[i].album.release_date);
 
-        addCommentInterface(dialogContent, data.tracks.items[i].name);
+        dialogComment.innerHTML = '';
+        addCommentInterface(dialogInput, dialogComment, data.tracks.items[i].name);
 
         modalId.showModal();
         modalId.scrollTop = '0';
-
-        // addCommentInterface(dialogContent, data.tracks.items[i].name);
 
         document.body.classList.add('blur');
 

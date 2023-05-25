@@ -5,7 +5,6 @@ export const closeDialog = (dialog_div, dialog_modal) => {
     const divClose = document.createElement('div');
     divClose.setAttribute('id', 'dialogCloseDiv');
     divClose.style.width = '7%';
-    // divClose.style.height = '20%';
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
@@ -144,7 +143,7 @@ export const dialogDetails = (dialog_content_div, dg_title, dg_author, dg_conten
     dialog_content_div.appendChild(dialogDetailDiv)
 };
 
-export const addCommentInterface = async (dialog_content_div, item_id) => {
+export const addCommentInterface = async (dialog_content_div, dialog_comment_div, item_id) => {
 
     try {
 
@@ -186,7 +185,8 @@ export const addCommentInterface = async (dialog_content_div, item_id) => {
         inputYourInsight.style.width = '50%';
         inputYourInsight.style.height = '5rem';
 
-        dialog_content_div.appendChild(addComment);
+        // dialog_content_div.appendChild(addComment);
+        inputDiv.appendChild(addComment);
 
         inputDiv.appendChild(inputCommentName);
         inputDiv.appendChild(inputYourInsight);
@@ -206,12 +206,19 @@ export const addCommentInterface = async (dialog_content_div, item_id) => {
                 addCommentToItem(item_id, username, comment, url);
                 document.getElementById('commenter-name-id').value = '';
                 document.getElementById('commenter-insight-id').value = '';
+
+                dialog_comment_div.innerHTML = '';
+                dialogCommentCount(dialog_comment_div, item_id);
             }
+
         });
+
+        inputDiv.appendChild(commentButton);
 
         dialog_content_div.appendChild(inputDiv);
 
-        dialog_content_div.appendChild(commentButton);
+        // dialog_content_div.appendChild(commentButton);
+        
 
     } catch (error) { return error; }
 };
