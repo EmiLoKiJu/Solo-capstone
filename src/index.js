@@ -6,6 +6,19 @@ import giveLikes from './modules/givelikes.js';
 // import getLikes from "./modules/gettinglikes.js";
 const musiccontainer = document.querySelector('.musiccontainer');
 
+const updatelike = async (itemid) => {
+  const data = await getdata();
+  const updatedLikes = await likesforthissearch(data, getLikes());
+  const index = updatedLikes.findIndex((item) => item.item_id === itemid);
+  document.getElementById(`${itemid}`).innerHTML = updatedLikes[index].likes;
+  // likenumbers[index].nextElementSibling.innerHTML('testing updatelike');
+};
+
+const buttonclicklike = (itemid) => {
+  giveLikes(itemid);
+  updatelike(itemid);
+};
+
 const render = async () => {
   const data = await getdata();
   const updatedLikes = await likesforthissearch(data, getLikes());
@@ -30,22 +43,6 @@ const render = async () => {
     });
   }
 };
-
-const updatelike = async (itemid) => {
-  const data = await getdata();
-  const updatedLikes = await likesforthissearch(data, getLikes());
-  const index = updatedLikes.findIndex(item => item.item_id === itemid);
-  document.getElementById(`${itemid}`).innerHTML = updatedLikes[index].likes;
-  // likenumbers[index].nextElementSibling.innerHTML('testing updatelike');
-};
-
-const buttonclicklike = (itemid) => {
-  giveLikes(itemid);
-  updatelike(itemid);
-};
-
-/* 
-<p>${updatedLikes[i].likes}</p> */
 
 document.addEventListener('DOMContentLoaded', () => {
   render();
