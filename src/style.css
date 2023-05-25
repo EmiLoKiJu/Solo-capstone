@@ -28,10 +28,10 @@ h2 {
   font-size: 30px;
 }
 
-h4,
-h5 {
-  margin: 0 5px;
-  font-size: 30px;
+h4 {
+  margin: 0 8px;
+  font-size: 20px;
+  font-weight: 100;
 }
 
 p {
@@ -42,6 +42,11 @@ p {
   display: flex;
 }
 
+.spacebetween {
+  justify-content: space-between;
+  width: 80%;
+}
+
 .flexcol {
   flex-direction: column;
 }
@@ -50,6 +55,10 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+}
+
+.width500px {
+  max-width: 500px;
 }
 
 .songelementcontainer {
@@ -71,4 +80,19 @@ p {
   height: 2px;
   width: 60%;
   margin: 32px 0;
+}
+
+.popupwindow {
+  position: fixed;
+  width: 80%;
+  align-items: center;
+  border: 2px solid black;
+  padding: 32px;
+  background-color: white;
+  margin-top: 32px;
+}
+
+.closepopup {
+  position: absolute;
+  right: 32px;
 }
