@@ -95,14 +95,14 @@ export const dialogDetails = (dialog_content_div, dg_title, dg_author, dg_conten
 
     const dialogAuthor = document.createElement('p');
     dialogAuthor.style.display = 'flex';
-    dialogAuthor.style.justifyContent = 'center';
+    dialogAuthor.style.justifyContent = 'flex-start';
     dialogAuthor.textContent = dg_author;
     dialogAuthor.setAttribute('class', 'dialog-author');
     dialogAuthor.style.width = '100%';
 
     const dialogDate = document.createElement('p');
     dialogDate.style.display = 'flex';
-    dialogDate.style.justifyContent = 'center';
+    dialogDate.style.justifyContent = 'flex-start';
     dialogDate.textContent = dg_content;
     dialogDate.setAttribute('class', 'dialog-date');
     dialogDate.style.width = '80%';
@@ -118,14 +118,14 @@ export const dialogDetails = (dialog_content_div, dg_title, dg_author, dg_conten
 
     const dialogUrl = document.createElement('p');
     dialogUrl.style.display = 'flex';
-    dialogUrl.style.justifyContent = 'center';
+    dialogUrl.style.justifyContent = 'flex-start';
     dialogUrl.textContent = dg_date;
     dialogUrl.setAttribute('class', 'dialog-url');
     dialogUrl.style.width = '100%';
 
     const dialogContent = document.createElement('p');
     dialogContent.style.display = 'flex';
-    dialogContent.style.justifyContent = 'center';
+    dialogContent.style.justifyContent = 'flex-start';
     dialogContent.textContent = dg_url;
     dialogContent.setAttribute('class', 'dialog-content');
     dialogContent.style.width = '100%';
