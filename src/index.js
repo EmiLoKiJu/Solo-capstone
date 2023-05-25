@@ -32,15 +32,15 @@ const getLikes = async () => {
 };
 
 const giveLikes = async (itemidd) => {
-  const response2 = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/', {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/', {
     method: 'POST',
     body: JSON.stringify({
       item_id: `${itemidd}`,
-      }),
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
+    }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
 };
 
 const getArtist = async () => {
