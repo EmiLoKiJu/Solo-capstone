@@ -6,6 +6,7 @@ import giveLikes from './modules/givelikes.js';
 import songelementcounter from './modules/songelementcounter.js';
 import postcommentfunc from './modules/postcomment.js';
 import getcomments from './modules/getcomments.js';
+import loadcomments from './modules/loadcomments.js';
 
 const musiccontainer = document.querySelector('.musiccontainer');
 const countercontainer = document.querySelector('h2');
@@ -24,7 +25,6 @@ const buttonclicklike = (itemid) => {
 };
 
 const buttonclickcomment = async (item) => {
-  console.log('calling button function with: ', item);
   const popup = document.createElement('div');
   popup.classList.add('dflex', 'flexcol', 'popupwindow');
   popup.innerHTML = `
@@ -65,35 +65,27 @@ const buttonclickcomment = async (item) => {
   // post comment function 
 
   const postcomment = popup.querySelector('.postcomment');
-  postcomment.addEventListener('click', (event) => {
+  postcomment.addEventListener('click', async (event) => {
     event.preventDefault();
     const nameinput = document.getElementById('name');
     const commentinput = document.getElementById('comment');
     if (nameinput.value.trim() !== '' && commentinput.value.trim() !== ''){
-      postcommentfunc(nameinput.value, commentinput.value, item.id);
+      await postcommentfunc(nameinput.value, commentinput.value, item.id);
       nameinput.value = '';
       commentinput.value = '';
+      const commentsforthis = await getcomments(item.id);
+      loadcomments(popup, commentsforthis);
     }
   });
 
   // loading comments
-
-  const commentscontainer = popup.querySelector('.commentscontainer');
   const commentsforthis = await getcomments(item.id);
-  console.log(commentsforthis);
-  let commentsstr = '';
-  for (let i = 0; i < commentsforthis.length; i +=1) {
-    commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
-  }
-  const commentselementcontainer = document.createElement('div');
-  commentselementcontainer.innerHTML = commentsstr;
-  commentscontainer.appendChild(commentselementcontainer);
+  loadcomments(popup, commentsforthis);
 }
 
 const render = async () => {
   const data = await getdata();
   const updatedLikes = await likesforthissearch(data, getLikes());
-  console.log(data.tracks.items);
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
     text.classList.add('songelementcontainer', 'dflex', 'flexcol');
@@ -124,5 +116,4 @@ const render = async () => {
 document.addEventListener('DOMContentLoaded', async () => {
   await render();
   songelementcounter(countercontainer);
-  // console.log(await getcomments('1BpmL4NBhX2P7GxuoVtojI'));
 });

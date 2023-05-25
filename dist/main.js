@@ -506,7 +506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const artistName = 'nothing but thieves';
-const token = 'BQBPw54lSFWDUeuPWssiypBXUXo-X9x11OvMuTCpEazvncaV5IhXXBDtlxK5fataXEb5aqprr9nCBK6LvODNdH8vvtbeOF7qZDRz4wGOAZYP5m53cq2E3xjNTi-AhtQFAcnMM-j7jviobJ85nWgZWzw9CeMShUM902QgS56q8ujAohBftPTBPw0hlh4QTsumZuYzxwm-v2OBfDon7A0Q4QSBoclG49sEI023M7Md72UhuWBRqjjGAKeoWK4QL3sCx3KKPHqmihE1dnJ1HueC';
+const token = 'BQBtiy_YL6Wd7qmz4hCTHhqBkcp1iixQEYoc60VuQYJcINzHyiyj0FgvOL75baS7htTbrr_6h5OClop17pYzDwuhzpKIar2I4qKwhbl1yaDZLYE1TYJ80NK1B4EIUfBiTSdyq0yTwii7u9bJjUoZACYltLVOI9zpFHTMdpY9vpBfZg_9S9hZYhGwqP-q6VgMUkcyQzTOBgbcoSbnNPLgCGgA4gOlS2huz2Dt-0tMn8Xxm-YyzMKdpp87WV-7_GbEukFN6ZvbH_-WcDw__T-P';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -602,6 +602,32 @@ const likesforthissearch = async (data, likessaved) => {
 
 /***/ }),
 
+/***/ "./src/modules/loadcomments.js":
+/*!*************************************!*\
+  !*** ./src/modules/loadcomments.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const loadcomments = async (popup, commentsforthis) => {
+  const commentscontainer = popup.querySelector('.commentscontainer');
+  let commentsstr = '';
+  for (let i = 0; i < commentsforthis.length; i +=1) {
+    commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
+  }
+  const commentselementcontainer = document.createElement('div');
+  commentselementcontainer.innerHTML = commentsstr;
+  commentscontainer.innerHTML = '';
+  commentscontainer.appendChild(commentselementcontainer);  
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadcomments);
+
+/***/ }),
+
 /***/ "./src/modules/postcomment.js":
 /*!************************************!*\
   !*** ./src/modules/postcomment.js ***!
@@ -613,7 +639,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const postcommentfunc = async (name, comment, itemid) => {
-  console.log('calling postcomment widh: ', name, ' ',comment, ' ', itemid);
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments/', {
     method: 'POST',
     body: JSON.stringify({
@@ -625,7 +650,6 @@ const postcommentfunc = async (name, comment, itemid) => {
       'Content-type': 'application/json',
     },
   });
-  console.log(response.ok);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postcommentfunc);
@@ -741,6 +765,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/songelementcounter.js */ "./src/modules/songelementcounter.js");
 /* harmony import */ var _modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/postcomment.js */ "./src/modules/postcomment.js");
 /* harmony import */ var _modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/getcomments.js */ "./src/modules/getcomments.js");
+/* harmony import */ var _modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/loadcomments.js */ "./src/modules/loadcomments.js");
+
 
 
 
@@ -767,7 +793,6 @@ const buttonclicklike = (itemid) => {
 };
 
 const buttonclickcomment = async (item) => {
-  console.log('calling button function with: ', item);
   const popup = document.createElement('div');
   popup.classList.add('dflex', 'flexcol', 'popupwindow');
   popup.innerHTML = `
@@ -808,35 +833,27 @@ const buttonclickcomment = async (item) => {
   // post comment function 
 
   const postcomment = popup.querySelector('.postcomment');
-  postcomment.addEventListener('click', (event) => {
+  postcomment.addEventListener('click', async (event) => {
     event.preventDefault();
     const nameinput = document.getElementById('name');
     const commentinput = document.getElementById('comment');
     if (nameinput.value.trim() !== '' && commentinput.value.trim() !== ''){
-      (0,_modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__["default"])(nameinput.value, commentinput.value, item.id);
+      await (0,_modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__["default"])(nameinput.value, commentinput.value, item.id);
       nameinput.value = '';
       commentinput.value = '';
+      const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
+      (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
     }
   });
 
   // loading comments
-
-  const commentscontainer = popup.querySelector('.commentscontainer');
   const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
-  console.log(commentsforthis);
-  let commentsstr = '';
-  for (let i = 0; i < commentsforthis.length; i +=1) {
-    commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
-  }
-  const commentselementcontainer = document.createElement('div');
-  commentselementcontainer.innerHTML = commentsstr;
-  commentscontainer.appendChild(commentselementcontainer);
+  (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
 }
 
 const render = async () => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
-  console.log(data.tracks.items);
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
     text.classList.add('songelementcontainer', 'dflex', 'flexcol');
@@ -867,7 +884,6 @@ const render = async () => {
 document.addEventListener('DOMContentLoaded', async () => {
   await render();
   (0,_modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__["default"])(countercontainer);
-  // console.log(await getcomments('1BpmL4NBhX2P7GxuoVtojI'));
 });
 })();
 
