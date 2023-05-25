@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3,\r\nh2 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3,\r\nh2 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  /* display: flex;\r\n  flex-direction: column;\r\n  align-items: center; */\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3,\r\nh2 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC;;wBAEsB;AACxB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  /* display: flex;\r\n  flex-direction: column;\r\n  align-items: center; */\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3,\r\nh2 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -588,7 +588,6 @@ __webpack_require__.r(__webpack_exports__);
 const songelementcounter = (cont) => {
   const arrayofsongs = document.querySelectorAll('.songelementcontainer');
   const counter = document.createElement('h3');
-  console.log(arrayofsongs.length);
   counter.innerText = arrayofsongs.length;
   cont.appendChild(counter);
 };
@@ -683,6 +682,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
 /* harmony import */ var _modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/givelikes.js */ "./src/modules/givelikes.js");
 /* harmony import */ var _modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/songelementcounter.js */ "./src/modules/songelementcounter.js");
+
 
 
 

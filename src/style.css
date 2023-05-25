@@ -6,13 +6,21 @@ body {
   align-items: center;
 }
 
+header {
+  margin: 32px 0;
+}
+
 img {
   object-fit: contain;
 }
 
-h3,
+h3 {
+  margin: 0 8px;
+  font-size: 30px;
+}
+
 h2 {
-  margin: 0 5px;
+  margin: 12px 12px;
   font-size: 30px;
 }
 
@@ -20,6 +28,10 @@ h4,
 h5 {
   margin: 0 5px;
   font-size: 30px;
+}
+
+p {
+  margin: 0;
 }
 
 .dflex {
@@ -39,4 +51,13 @@ h5 {
 .songelementcontainer {
   align-items: center;
   height: 530px;
+}
+
+.spotifyicon {
+  width: 64px;
+}
+
+.likebutton {
+  height: 24px;
+  margin: 0 8px;
 }
