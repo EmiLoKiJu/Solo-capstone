@@ -200,15 +200,13 @@ export const addCommentInterface = async (dialog_content_div, item_id) => {
         commentButton.style.padding = '0.5rem';
         commentButton.style.margin = '1rem';
         commentButton.addEventListener('click', () => {
-
             const username = document.getElementById('commenter-name-id').value;
             const comment = document.getElementById('commenter-insight-id').value;
-
-            addCommentToItem(item_id, username, comment, url);
-
-            document.getElementById('commenter-name-id').value = '';
-            document.getElementById('commenter-insight-id').value = '';
-
+            if (username.trim() !== '' && comment.trim() !== '') {
+                addCommentToItem(item_id, username, comment, url);
+                document.getElementById('commenter-name-id').value = '';
+                document.getElementById('commenter-insight-id').value = '';
+            }
         });
 
         dialog_content_div.appendChild(inputDiv);
