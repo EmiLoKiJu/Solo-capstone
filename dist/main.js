@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n}\r\n\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n  object-fit: scale-down; /* other options: 'cover''' */\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementontainer {\r\n  align-items: center;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;AACxC;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB,EAAE,6BAA6B;AACvD;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,mBAAmB;AACrB","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n}\r\n\r\nimg {\r\n  width: 100%;\r\n  height: 100%;\r\n  object-fit: scale-down; /* other options: 'cover''' */\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementontainer {\r\n  align-items: center;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3,\r\nh2 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3,\r\nh2 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -479,7 +479,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const artistName = 'nothing but thieves';
-const token = 'BQDXVhPdoxZkka7Jpi_wdcbOXFE8SGNv-bF1fn392Z5YSBEnCKkQ-wUHraKDUnOnNCbT86CrUfMFIyZwucWZHg0MyCLmIPoE2qZ9I3U2rFgeAV3wHJosHoVnCV-3Zpl1KrcG5H7-WjfOpxQAd3fxYZzoy8F9yi09tIbYqE5lxpy12CYJcLOfX3pI0WkxckgveAc4yAioE_1ox9Ka2eF1jkO5V_e-yOEpZxZruLmBQqC82ZePUpYFPPZ_BCcS5FWVKm_Sak4XACwv6dKUEtg1';
+const token = 'BQAhsPzxia1GK8GHsHhrUwx8a-thVkdJNXRoAmDnS8P71uqu8skr_xadUq07tZEkdjcs2NS4RyOfPDFfxq7jjA5NffhkhrUJkaYteFlmuX4QKCayPCRN6LFmOisjsMubBMoUmkJ6iJpfEUzEvQvFWPrkP36NolP2xlSLaMqCeR3gDO51vh7FHCeZnrpnVnJ8Uv_tDJSdN6YM9sE6R6oh67ww-58tnfrDa7zmuSQWhcW4oPPi-ICEr9MLD-NN0REvj0y4lQx48O9PDpV5I26X';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -514,7 +514,6 @@ const getLikes = async () => {
   });
   if (response.ok) {
     const data = await response.json();
-    console.log(data)
     return data;
   } return false;
 };
@@ -534,8 +533,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const giveLikes = async (itemidd) => {
-  console.log(itemidd);
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
     method: 'POST',
     body: JSON.stringify({
       item_id: `${itemidd}`,
@@ -544,7 +542,6 @@ const giveLikes = async (itemidd) => {
       'Content-type': 'application/json',
     },
   });
-  console.log(response);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (giveLikes);
@@ -575,6 +572,28 @@ const likesforthissearch = async (data, likessaved) => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (likesforthissearch);
+
+/***/ }),
+
+/***/ "./src/modules/songelementcounter.js":
+/*!*******************************************!*\
+  !*** ./src/modules/songelementcounter.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const songelementcounter = (cont) => {
+  const arrayofsongs = document.querySelectorAll('.songelementcontainer');
+  const counter = document.createElement('h3');
+  console.log(arrayofsongs.length);
+  counter.innerText = arrayofsongs.length;
+  cont.appendChild(counter);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (songelementcounter);
 
 /***/ })
 
@@ -663,20 +682,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/likesforthissearch.js */ "./src/modules/likesforthissearch.js");
 /* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
 /* harmony import */ var _modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/givelikes.js */ "./src/modules/givelikes.js");
+/* harmony import */ var _modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/songelementcounter.js */ "./src/modules/songelementcounter.js");
 
 
 
 
 
-// import getLikes from "./modules/gettinglikes.js";
+
 const musiccontainer = document.querySelector('.musiccontainer');
+const countercontainer = document.querySelector('h2');
+
+const updatelike = async (itemid) => {
+  const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
+  const index = updatedLikes.findIndex((item) => item.item_id === itemid);
+  document.getElementById(`${itemid}`).innerHTML = updatedLikes[index].likes;
+  // likenumbers[index].nextElementSibling.innerHTML('testing updatelike');
+};
+
+const buttonclicklike = (itemid) => {
+  (0,_modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__["default"])(itemid);
+  updatelike(itemid);
+};
 
 const render = async () => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
-    text.classList.add('songelementontainer', 'dflex', 'flexcol');
+    text.classList.add('songelementcontainer', 'dflex', 'flexcol');
     text.innerHTML = `
     <p>${data.tracks.items[i].name}</p>
     <audio controls>
@@ -696,24 +730,9 @@ const render = async () => {
   }
 };
 
-const updatelike = async (itemid) => {
-  const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
-  const index = updatedLikes.findIndex(item => item.item_id === itemid);
-  document.getElementById(`${itemid}`).innerHTML = updatedLikes[index].likes;
-  // likenumbers[index].nextElementSibling.innerHTML('testing updatelike');
-};
-
-const buttonclicklike = (itemid) => {
-  (0,_modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__["default"])(itemid);
-  updatelike(itemid);
-};
-
-/* 
-<p>${updatedLikes[i].likes}</p> */
-
-document.addEventListener('DOMContentLoaded', () => {
-  render();
+document.addEventListener('DOMContentLoaded', async () => {
+  await render();
+  (0,_modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__["default"])(countercontainer);
 });
 })();
 

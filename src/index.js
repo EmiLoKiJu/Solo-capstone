@@ -3,8 +3,10 @@ import getdata from './modules/getdata.js';
 import likesforthissearch from './modules/likesforthissearch.js';
 import getLikes from './modules/getlikes.js';
 import giveLikes from './modules/givelikes.js';
-// import getLikes from "./modules/gettinglikes.js";
+import songelementcounter from './modules/songelementcounter.js';
+
 const musiccontainer = document.querySelector('.musiccontainer');
+const countercontainer = document.querySelector('h2');
 
 const updatelike = async (itemid) => {
   const data = await getdata();
@@ -24,7 +26,7 @@ const render = async () => {
   const updatedLikes = await likesforthissearch(data, getLikes());
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
-    text.classList.add('songelementontainer', 'dflex', 'flexcol');
+    text.classList.add('songelementcontainer', 'dflex', 'flexcol');
     text.innerHTML = `
     <p>${data.tracks.items[i].name}</p>
     <audio controls>
@@ -44,6 +46,7 @@ const render = async () => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  render();
+document.addEventListener('DOMContentLoaded', async () => {
+  await render();
+  songelementcounter(countercontainer);
 });

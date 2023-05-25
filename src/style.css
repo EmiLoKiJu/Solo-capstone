@@ -1,12 +1,25 @@
 body {
   text-align: center;
   font-family: 'Crete Round', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 img {
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down; /* other options: 'cover''' */
+  object-fit: contain;
+}
+
+h3,
+h2 {
+  margin: 0 5px;
+  font-size: 30px;
+}
+
+h4,
+h5 {
+  margin: 0 5px;
+  font-size: 30px;
 }
 
 .dflex {
@@ -23,6 +36,7 @@ img {
   grid-gap: 10px;
 }
 
-.songelementontainer {
+.songelementcontainer {
   align-items: center;
+  height: 530px;
 }
