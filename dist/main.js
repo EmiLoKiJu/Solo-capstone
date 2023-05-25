@@ -514,6 +514,7 @@ const getLikes = async () => {
   });
   if (response.ok) {
     const data = await response.json();
+    console.log(data)
     return data;
   } return false;
 };
@@ -533,7 +534,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const giveLikes = async (itemidd) => {
-  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/', {
+  console.log(itemidd);
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
     method: 'POST',
     body: JSON.stringify({
       item_id: `${itemidd}`,
@@ -542,6 +544,7 @@ const giveLikes = async (itemidd) => {
       'Content-type': 'application/json',
     },
   });
+  console.log(response);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (giveLikes);
@@ -667,8 +670,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // import getLikes from "./modules/gettinglikes.js";
 const musiccontainer = document.querySelector('.musiccontainer');
-const datanames = [];
-const likenumbers = [];
 
 const render = async () => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
@@ -685,16 +686,12 @@ const render = async () => {
     <img src=${data.tracks.items[i].album.images[1].url}></img>
     <div class="dflex likescontainer">
       <button class="likebutton">like</button>
-      <p class="likes">${updatedLikes[i].likes}</p>
+      <p class="likes" id="${data.tracks.items[i].id}">${updatedLikes[i].likes}</p>
     </div>`;
     musiccontainer.appendChild(text);
     const likebutton = text.querySelector('.likebutton');
     likebutton.addEventListener('click', () => {
       buttonclicklike(data.tracks.items[i].id);
-    });
-    likenumbers.push(text.querySelector('.likes'))
-    datanames.push({
-      item_id: data.tracks.items[i].id,
     });
   }
 };
@@ -703,16 +700,14 @@ const updatelike = async (itemid) => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
   const index = updatedLikes.findIndex(item => item.item_id === itemid);
-  button.nextElementSibling.innerHTML('testing updatelike');
-  console.log(index);
+  document.getElementById(`${itemid}`).innerHTML = updatedLikes[index].likes;
+  // likenumbers[index].nextElementSibling.innerHTML('testing updatelike');
 };
 
 const buttonclicklike = (itemid) => {
   (0,_modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__["default"])(itemid);
   updatelike(itemid);
 };
-
-
 
 /* 
 <p>${updatedLikes[i].likes}</p> */
