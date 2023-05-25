@@ -552,7 +552,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // import getLikes from "./modules/gettinglikes.js";
 const artistName = 'nothing but thieves';
-const token = 'BQDjGwW8wcvRMCWT_qyQscRgqXmAMFZJ1L_uu-BT84ev_GHcLBJjqaReYpevIyAoagljau_8Q6ig--YkxnlOHu43xVhAr4K-pOuqvAHUuXE58nU0xMSf8f33M3dEtjOBmI7bbIVxymC71Nbdfsmgt6cYS2TsJf2QaWKz74Jpb4VNfixuU0Or5tNZ2iC52N4ufPldhayrNX2zwCJ0x4yAsUJ7tce985-eFoL_wwCTkC_heK5Ond4wJSoy8Onj2XS2zlkSJZ4eFEOIdEDZ7LDp';
+const token = 'BQDqmlYc4abtA9aVrK4Z5c1UQwIkmT7yE7zuqKdlxvL7LvcJ2lz_hnI0Wp8LT5NCQseIsGPy2i-np9DdSZPj1mbJVQMthmAD_96QZVwwQABuY8-C1kfY3yPlfWRRjL6dZ33mzQK1pvbzXcDgk-qbK0Aj5Vq8ElVz4sR8uTyQ4vBGRlfvYD7xhPukoXF1NJjvsF4HA3IGnquJV7GE9c7x90taupJ5EmEoYNYL3L80M--rLLMI46O4aSk2gRSA-46fZ5OTQLzkIfh-YJFX3P4T';
 const musiccontainer = document.querySelector('.musiccontainer');
 let like = 5;
 let datanames = [];
