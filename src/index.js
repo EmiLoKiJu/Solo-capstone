@@ -4,6 +4,8 @@ import likesforthissearch from './modules/likesforthissearch.js';
 import getLikes from './modules/getlikes.js';
 import giveLikes from './modules/givelikes.js';
 import songelementcounter from './modules/songelementcounter.js';
+import postcommentfunc from './modules/postcomment.js';
+import getcomments from './modules/getcomments.js';
 
 const musiccontainer = document.querySelector('.musiccontainer');
 const countercontainer = document.querySelector('h2');
@@ -21,7 +23,7 @@ const buttonclicklike = (itemid) => {
   updatelike(itemid);
 };
 
-const buttonclickcomment = (item) => {
+const buttonclickcomment = async (item) => {
   console.log('calling button function with: ', item);
   const popup = document.createElement('div');
   popup.classList.add('dflex', 'flexcol', 'popupwindow');
@@ -37,12 +39,55 @@ const buttonclickcomment = (item) => {
     <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
     <h4>Release date: ${item.album.release_date}</h4>
   </div>
+  <div class="commentscontainer">
+  </div>
+  <form id="myForm" action="">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="comment">Comment:</label>
+      <input type="text" id="comment" name="comment" required>
+    </div>
+    <button class="postcomment">Comment</button>
+  </form>
   `;
   document.querySelector('body').appendChild(popup);
+
+  // popup to close
+
   const closepopup = popup.querySelector('.closepopup');
   closepopup.addEventListener('click', () => {
     document.querySelector('body').removeChild(popup);
   });
+
+  // post comment function 
+
+  const postcomment = popup.querySelector('.postcomment');
+  postcomment.addEventListener('click', (event) => {
+    event.preventDefault();
+    const nameinput = document.getElementById('name');
+    const commentinput = document.getElementById('comment');
+    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== ''){
+      postcommentfunc(nameinput.value, commentinput.value, item.id);
+      nameinput.value = '';
+      commentinput.value = '';
+    }
+  });
+
+  // loading comments
+
+  const commentscontainer = popup.querySelector('.commentscontainer');
+  const commentsforthis = await getcomments(item.id);
+  console.log(commentsforthis);
+  let commentsstr = '';
+  for (let i = 0; i < commentsforthis.length; i +=1) {
+    commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
+  }
+  const commentselementcontainer = document.createElement('div');
+  commentselementcontainer.innerHTML = commentsstr;
+  commentscontainer.appendChild(commentselementcontainer);
 }
 
 const render = async () => {
@@ -79,4 +124,5 @@ const render = async () => {
 document.addEventListener('DOMContentLoaded', async () => {
   await render();
   songelementcounter(countercontainer);
+  // console.log(await getcomments('1BpmL4NBhX2P7GxuoVtojI'));
 });
