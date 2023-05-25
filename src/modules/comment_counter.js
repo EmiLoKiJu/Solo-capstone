@@ -22,6 +22,7 @@ const dialogCommentCount = async (dialog_content_div, item_id) => {
         dialogCommentCount.style.margin = '1rem';
         dialogCommentCount.style.width = '100%';
 
+        dialog_content_div.innerHTML = '';
         dialog_content_div.appendChild(dialogCommentCount)
 
         

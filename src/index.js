@@ -81,6 +81,7 @@ const render = async () => {
       dialogContent.style.overflowX = 'hidden';
       dialogContent.scrollTop = '0';
 
+      dialogComment.innerHTML = '';
       dialogCommentCount(dialogComment, data.tracks.items[i].name);
 
       closeDialog(dialogClose, modalId);
@@ -88,7 +89,7 @@ const render = async () => {
       dialogDetails(dialogDetail, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
         data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify, data.tracks.items[i].album.release_date);
 
-        dialogComment.innerHTML = '';
+        dialogInput.innerHTML = '';
         addCommentInterface(dialogInput, dialogComment, data.tracks.items[i].name);
 
         modalId.showModal();
