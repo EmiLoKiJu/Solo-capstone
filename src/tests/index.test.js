@@ -1,6 +1,7 @@
 import songelementcounter from './songelementcounter.js';
 
 const jsdom = require('jsdom');
+
 const { JSDOM } = jsdom;
 
 describe('songelementcounter', () => {
@@ -79,5 +80,3 @@ describe('songelementcounter', () => {
     expect(result).toBe(20);
   });
 });
-
-  // toBeTruthy
