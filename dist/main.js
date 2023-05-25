@@ -478,6 +478,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+const artistName = 'nothing but thieves';
+const token = 'BQDXVhPdoxZkka7Jpi_wdcbOXFE8SGNv-bF1fn392Z5YSBEnCKkQ-wUHraKDUnOnNCbT86CrUfMFIyZwucWZHg0MyCLmIPoE2qZ9I3U2rFgeAV3wHJosHoVnCV-3Zpl1KrcG5H7-WjfOpxQAd3fxYZzoy8F9yi09tIbYqE5lxpy12CYJcLOfX3pI0WkxckgveAc4yAioE_1ox9Ka2eF1jkO5V_e-yOEpZxZruLmBQqC82ZePUpYFPPZ_BCcS5FWVKm_Sak4XACwv6dKUEtg1';
+
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
     headers: {
@@ -486,7 +489,7 @@ const getdata = async () => {
   });
   const data = await response.json();
   return data;
-}
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getdata);
 
@@ -511,11 +514,40 @@ const getLikes = async () => {
   });
   if (response.ok) {
     const data = await response.json();
+    console.log(data)
     return data;
   } return false;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getLikes);
+
+/***/ }),
+
+/***/ "./src/modules/givelikes.js":
+/*!**********************************!*\
+  !*** ./src/modules/givelikes.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const giveLikes = async (itemidd) => {
+  console.log(itemidd);
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: `${itemidd}`,
+    }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  console.log(response);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (giveLikes);
 
 /***/ }),
 
@@ -535,10 +567,11 @@ const likesforthissearch = async (data, likessaved) => {
   resolvedlikes.forEach((item) => {
     itemMap.set(item.item_id, item.likes);
   });
-  updatedLikes = data.tracks.items.map((item) => ({
+  const updatedLikes = data.tracks.items.map((item) => ({
     item_id: item.id,
-    likes: itemMap.get(item.id),
+    likes: itemMap.has(item.id) ? itemMap.get(item.id) : 0,
   }));
+  return updatedLikes;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (likesforthissearch);
@@ -629,38 +662,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/getdata.js */ "./src/modules/getdata.js");
 /* harmony import */ var _modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/likesforthissearch.js */ "./src/modules/likesforthissearch.js");
 /* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
+/* harmony import */ var _modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/givelikes.js */ "./src/modules/givelikes.js");
+
 
 
 
 
 // import getLikes from "./modules/gettinglikes.js";
-const artistName = 'nothing but thieves';
-const token = 'BQDqmlYc4abtA9aVrK4Z5c1UQwIkmT7yE7zuqKdlxvL7LvcJ2lz_hnI0Wp8LT5NCQseIsGPy2i-np9DdSZPj1mbJVQMthmAD_96QZVwwQABuY8-C1kfY3yPlfWRRjL6dZ33mzQK1pvbzXcDgk-qbK0Aj5Vq8ElVz4sR8uTyQ4vBGRlfvYD7xhPukoXF1NJjvsF4HA3IGnquJV7GE9c7x90taupJ5EmEoYNYL3L80M--rLLMI46O4aSk2gRSA-46fZ5OTQLzkIfh-YJFX3P4T';
 const musiccontainer = document.querySelector('.musiccontainer');
-const datanames = [];
-let updatedLikes = [];
 
 const render = async () => {
-  const data = (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
+  const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
     text.classList.add('songelementontainer', 'dflex', 'flexcol');
-    text.innerHTML = `<p>${data.tracks.items[i].name}</p><audio controls>
-    <source src="${data.tracks.items[i].preview_url}" type="audio/mpeg">
-    Your browser does not support the audio element.
-    </audio><img src=${data.tracks.items[i].album.images[1].url}></img>
-    <div class="dflex"><button class='likebutton'>like</button><p>${updatedLikes[i].likes}</p></div>`;
+    text.innerHTML = `
+    <p>${data.tracks.items[i].name}</p>
+    <audio controls>
+      <source src="${data.tracks.items[i].preview_url}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <img src=${data.tracks.items[i].album.images[1].url}></img>
+    <div class="dflex likescontainer">
+      <button class="likebutton">like</button>
+      <p class="likes" id="${data.tracks.items[i].id}">${updatedLikes[i].likes}</p>
+    </div>`;
     musiccontainer.appendChild(text);
     const likebutton = text.querySelector('.likebutton');
     likebutton.addEventListener('click', () => {
-      giveLikes(data.tracks.items[i].id);
-    });
-    datanames.push({
-      item_id: data.tracks.items[i].id,
+      buttonclicklike(data.tracks.items[i].id);
     });
   }
 };
+
+const updatelike = async (itemid) => {
+  const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
+  const index = updatedLikes.findIndex(item => item.item_id === itemid);
+  document.getElementById(`${itemid}`).innerHTML = updatedLikes[index].likes;
+  // likenumbers[index].nextElementSibling.innerHTML('testing updatelike');
+};
+
+const buttonclicklike = (itemid) => {
+  (0,_modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__["default"])(itemid);
+  updatelike(itemid);
+};
+
+/* 
+<p>${updatedLikes[i].likes}</p> */
 
 document.addEventListener('DOMContentLoaded', () => {
   render();

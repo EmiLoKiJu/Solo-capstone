@@ -1,5 +1,5 @@
 const giveLikes = async (itemidd) => {
-  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/', {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
     method: 'POST',
     body: JSON.stringify({
       item_id: `${itemidd}`,

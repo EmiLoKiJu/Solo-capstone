@@ -6,7 +6,7 @@ const likesforthissearch = async (data, likessaved) => {
   });
   const updatedLikes = data.tracks.items.map((item) => ({
     item_id: item.id,
-    likes: itemMap.get(item.id),
+    likes: itemMap.has(item.id) ? itemMap.get(item.id) : 0,
   }));
   return updatedLikes;
 };
