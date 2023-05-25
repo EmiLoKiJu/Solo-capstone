@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 32px 0;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,eAAe;AACjB;;AAEA;;EAEE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;AACf","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 32px 0;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4,\r\nh5 {\r\n  margin: 0 5px;\r\n  font-size: 30px;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,8BAA8B;EAC9B,UAAU;AACZ;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,UAAU;EACV,mBAAmB;EACnB,uBAAuB;EACvB,aAAa;EACb,uBAAuB;EACvB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;AACb","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -468,6 +468,33 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/getcomments.js":
+/*!************************************!*\
+  !*** ./src/modules/getcomments.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const getcomments = async (itemid) => {
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments?item_id=${itemid}`, {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  } return false;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getcomments);
+
+/***/ }),
+
 /***/ "./src/modules/getdata.js":
 /*!********************************!*\
   !*** ./src/modules/getdata.js ***!
@@ -479,7 +506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const artistName = 'nothing but thieves';
-const token = 'BQAhsPzxia1GK8GHsHhrUwx8a-thVkdJNXRoAmDnS8P71uqu8skr_xadUq07tZEkdjcs2NS4RyOfPDFfxq7jjA5NffhkhrUJkaYteFlmuX4QKCayPCRN6LFmOisjsMubBMoUmkJ6iJpfEUzEvQvFWPrkP36NolP2xlSLaMqCeR3gDO51vh7FHCeZnrpnVnJ8Uv_tDJSdN6YM9sE6R6oh67ww-58tnfrDa7zmuSQWhcW4oPPi-ICEr9MLD-NN0REvj0y4lQx48O9PDpV5I26X';
+const token = 'BQBtiy_YL6Wd7qmz4hCTHhqBkcp1iixQEYoc60VuQYJcINzHyiyj0FgvOL75baS7htTbrr_6h5OClop17pYzDwuhzpKIar2I4qKwhbl1yaDZLYE1TYJ80NK1B4EIUfBiTSdyq0yTwii7u9bJjUoZACYltLVOI9zpFHTMdpY9vpBfZg_9S9hZYhGwqP-q6VgMUkcyQzTOBgbcoSbnNPLgCGgA4gOlS2huz2Dt-0tMn8Xxm-YyzMKdpp87WV-7_GbEukFN6ZvbH_-WcDw__T-P';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -572,6 +599,60 @@ const likesforthissearch = async (data, likessaved) => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (likesforthissearch);
+
+/***/ }),
+
+/***/ "./src/modules/loadcomments.js":
+/*!*************************************!*\
+  !*** ./src/modules/loadcomments.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const loadcomments = async (popup, commentsforthis) => {
+  const commentscontainer = popup.querySelector('.commentscontainer');
+  let commentsstr = '';
+  for (let i = 0; i < commentsforthis.length; i += 1) {
+    commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
+  }
+  const commentselementcontainer = document.createElement('div');
+  commentselementcontainer.innerHTML = commentsstr;
+  commentscontainer.innerHTML = '';
+  commentscontainer.appendChild(commentselementcontainer);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadcomments);
+
+/***/ }),
+
+/***/ "./src/modules/postcomment.js":
+/*!************************************!*\
+  !*** ./src/modules/postcomment.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const postcommentfunc = async (name, comment, itemid) => {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments/', {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: `${itemid}`,
+      username: `${name}`,
+      comment: `${comment}`,
+    }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postcommentfunc);
 
 /***/ }),
 
@@ -682,6 +763,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
 /* harmony import */ var _modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/givelikes.js */ "./src/modules/givelikes.js");
 /* harmony import */ var _modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/songelementcounter.js */ "./src/modules/songelementcounter.js");
+/* harmony import */ var _modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/postcomment.js */ "./src/modules/postcomment.js");
+/* harmony import */ var _modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/getcomments.js */ "./src/modules/getcomments.js");
+/* harmony import */ var _modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/loadcomments.js */ "./src/modules/loadcomments.js");
+
+
+
 
 
 
@@ -705,6 +792,65 @@ const buttonclicklike = (itemid) => {
   updatelike(itemid);
 };
 
+const buttonclickcomment = async (item) => {
+  const popup = document.createElement('div');
+  popup.classList.add('dflex', 'flexcol', 'popupwindow');
+  popup.innerHTML = `
+  <button class="closepopup">X</button>
+  <img class="width500px" src=${item.album.images[0].url}></img>
+  <h1>${item.name}</h1>
+  <div class="dflex spacebetween">
+    <h4>Artist: ${item.artists[0].name}</h4>
+    <h4>Album: ${item.album.name}</h4>
+  </div>
+  <div class="dflex spacebetween">
+    <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
+    <h4>Release date: ${item.album.release_date}</h4>
+  </div>
+  <div class="commentscontainer">
+  </div>
+  <form id="myForm" action="">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="comment">Comment:</label>
+      <input type="text" id="comment" name="comment" required>
+    </div>
+    <button class="postcomment">Comment</button>
+  </form>
+  `;
+  document.querySelector('body').appendChild(popup);
+
+  // popup to close
+
+  const closepopup = popup.querySelector('.closepopup');
+  closepopup.addEventListener('click', () => {
+    document.querySelector('body').removeChild(popup);
+  });
+
+  // post comment function
+
+  const postcomment = popup.querySelector('.postcomment');
+  postcomment.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const nameinput = document.getElementById('name');
+    const commentinput = document.getElementById('comment');
+    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== '') {
+      await (0,_modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__["default"])(nameinput.value, commentinput.value, item.id);
+      nameinput.value = '';
+      commentinput.value = '';
+      const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
+      (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
+    }
+  });
+
+  // loading comments
+  const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
+  (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
+};
+
 const render = async () => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
@@ -721,11 +867,16 @@ const render = async () => {
     <div class="dflex likescontainer">
       <button class="likebutton">like</button>
       <p class="likes" id="${data.tracks.items[i].id}">${updatedLikes[i].likes}</p>
-    </div>`;
+    </div>
+    <button class="commentbutton">comment</button>`;
     musiccontainer.appendChild(text);
     const likebutton = text.querySelector('.likebutton');
     likebutton.addEventListener('click', () => {
       buttonclicklike(data.tracks.items[i].id);
+    });
+    const commentbutton = text.querySelector('.commentbutton');
+    commentbutton.addEventListener('click', () => {
+      buttonclickcomment(data.tracks.items[i]);
     });
   }
 };
