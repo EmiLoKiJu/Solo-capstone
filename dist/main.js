@@ -479,19 +479,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const getcomments = async (itemid) => {
-    const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments?item_id=${itemid}`, {
-      method: 'GET',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } return false;
-  };
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments?item_id=${itemid}`, {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  } return false;
+};
 
-  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getcomments);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getcomments);
 
 /***/ }),
 
@@ -615,14 +615,14 @@ __webpack_require__.r(__webpack_exports__);
 const loadcomments = async (popup, commentsforthis) => {
   const commentscontainer = popup.querySelector('.commentscontainer');
   let commentsstr = '';
-  for (let i = 0; i < commentsforthis.length; i +=1) {
+  for (let i = 0; i < commentsforthis.length; i += 1) {
     commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
   }
   const commentselementcontainer = document.createElement('div');
   commentselementcontainer.innerHTML = commentsstr;
   commentscontainer.innerHTML = '';
-  commentscontainer.appendChild(commentselementcontainer);  
-}
+  commentscontainer.appendChild(commentselementcontainer);
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadcomments);
 
@@ -639,18 +639,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const postcommentfunc = async (name, comment, itemid) => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments/', {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments/', {
     method: 'POST',
     body: JSON.stringify({
       item_id: `${itemid}`,
       username: `${name}`,
-      comment: `${comment}`
+      comment: `${comment}`,
     }),
     headers: {
       'Content-type': 'application/json',
     },
   });
-}
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postcommentfunc);
 
@@ -830,14 +830,14 @@ const buttonclickcomment = async (item) => {
     document.querySelector('body').removeChild(popup);
   });
 
-  // post comment function 
+  // post comment function
 
   const postcomment = popup.querySelector('.postcomment');
   postcomment.addEventListener('click', async (event) => {
     event.preventDefault();
     const nameinput = document.getElementById('name');
     const commentinput = document.getElementById('comment');
-    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== ''){
+    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== '') {
       await (0,_modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__["default"])(nameinput.value, commentinput.value, item.id);
       nameinput.value = '';
       commentinput.value = '';
@@ -849,7 +849,7 @@ const buttonclickcomment = async (item) => {
   // loading comments
   const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
   (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
-}
+};
 
 const render = async () => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();

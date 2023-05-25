@@ -62,14 +62,14 @@ const buttonclickcomment = async (item) => {
     document.querySelector('body').removeChild(popup);
   });
 
-  // post comment function 
+  // post comment function
 
   const postcomment = popup.querySelector('.postcomment');
   postcomment.addEventListener('click', async (event) => {
     event.preventDefault();
     const nameinput = document.getElementById('name');
     const commentinput = document.getElementById('comment');
-    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== ''){
+    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== '') {
       await postcommentfunc(nameinput.value, commentinput.value, item.id);
       nameinput.value = '';
       commentinput.value = '';
@@ -81,7 +81,7 @@ const buttonclickcomment = async (item) => {
   // loading comments
   const commentsforthis = await getcomments(item.id);
   loadcomments(popup, commentsforthis);
-}
+};
 
 const render = async () => {
   const data = await getdata();
