@@ -47,7 +47,7 @@ export const dialogImage = (dialog_content_div, dialog_img) => {
     dialogImg.style.display = 'flex';
     dialogImg.setAttribute('class', 'dialog-img');
     dialogImg.src = dialog_img;
-    dialogImg.style.width = '70%';
+    dialogImg.style.width = '50%';
 
     dialogImgDiv.appendChild(dialogImg)
 

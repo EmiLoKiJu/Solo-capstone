@@ -82,10 +82,10 @@ const render = async () => {
       dialogCommentCount(dialogContent, data.tracks.items[i].name);
 
       closeDialog(dialogContent, modalId);
-      dialogImage(dialogContent, data.tracks.items[i].album.images[1].url);
+      dialogImage(dialogContent, data.tracks.items[i].album.images[0].url);
       // dialogDetails(dialogContent, data.tracks.items[i].name, element.author, element.content, element.date, element.url);
-      dialogDetails(dialogContent, data.tracks.items[i].name, data.tracks.items[i].type, 
-        data.tracks.items[i].album_type, data.tracks.items[i].uri, data.tracks.items[i].href);
+      dialogDetails(dialogContent, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
+        data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify, data.tracks.items[i].album.release_date);
 
         addCommentInterface(dialogContent, data.tracks.items[i].name);
 
