@@ -9,17 +9,17 @@ let updatedLikes = [];
 const likesforthissearch = async (data, likessaved) => {
   const resolvedlikes = await likessaved;
   const itemMap = new Map();
-  resolvedlikes.forEach(item => {
+  resolvedlikes.forEach((item) => {
     itemMap.set(item.item_id, item.likes);
   });
-  updatedLikes = data.tracks.items.map(item => ({
+  updatedLikes = data.tracks.items.map((item) => ({
     item_id: item.id,
-    likes: itemMap.get(item.id)
+    likes: itemMap.get(item.id),
   }));
-}
+};
 
 const getLikes = async () => {
-  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/`, {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/likes/', {
     method: 'GET',
     headers: {
       'Content-type': 'application/json',
@@ -29,20 +29,20 @@ const getLikes = async () => {
     const data = await response.json();
     return data;
   }
-}
+  else return false;
+};
 
 const giveLikes = async (itemidd) => {
-  const response2 = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/`, {
-  method: 'POST',
-  body: JSON.stringify({
-    "item_id": `${itemidd}`,
-    }),
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-  const data2 = await response2;
-}
+  const response2 = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vYlIBG65vRC15spE8sZd/likes/', {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: `${itemidd}`,
+      }),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+};
 
 const getArtist = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -53,9 +53,8 @@ const getArtist = async () => {
   const data = await response.json();
 
   await likesforthissearch(data, getLikes());
-  let str = '';
 
-  for (let i = 0; i < data.tracks.items.length; i++) {
+  for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
     text.classList.add('songelementontainer', 'dflex', 'flexcol');
     text.innerHTML = `<p>${data.tracks.items[i].name}</p><audio controls>
@@ -69,9 +68,9 @@ const getArtist = async () => {
       giveLikes(data.tracks.items[i].id);
     });
     datanames.push({
-      item_id: data.tracks.items[i].id
+      item_id: data.tracks.items[i].id,
     });
   }
-}
+};
 
 getArtist();
