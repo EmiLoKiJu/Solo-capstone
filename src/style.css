@@ -96,3 +96,7 @@ p {
   position: absolute;
   right: 32px;
 }
+
+.blur {
+  filter: blur(8px);
+}
