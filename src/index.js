@@ -28,8 +28,7 @@ const getLikes = async () => {
   if (response.ok) {
     const data = await response.json();
     return data;
-  }
-  else return false;
+  } return false;
 };
 
 const giveLikes = async (itemidd) => {
