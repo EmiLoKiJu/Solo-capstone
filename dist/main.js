@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,8BAA8B;EAC9B,UAAU;AACZ;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,UAAU;EACV,mBAAmB;EACnB,uBAAuB;EACvB,aAAa;EACb,uBAAuB;EACvB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;AACb","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n\r\n.blur {\r\n  filter: blur(8px);\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,8BAA8B;EAC9B,UAAU;AACZ;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,UAAU;EACV,mBAAmB;EACnB,uBAAuB;EACvB,aAAa;EACb,uBAAuB;EACvB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;AACb;;AAEA;EACE,iBAAiB;AACnB","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n\r\n.blur {\r\n  filter: blur(8px);\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -468,30 +468,342 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/modules/getcomments.js":
-/*!************************************!*\
-  !*** ./src/modules/getcomments.js ***!
-  \************************************/
+/***/ "./src/modules/comment.js":
+/*!********************************!*\
+  !*** ./src/modules/comment.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addCommentInterface": () => (/* binding */ addCommentInterface),
+/* harmony export */   "closeDialog": () => (/* binding */ closeDialog),
+/* harmony export */   "dialogDetails": () => (/* binding */ dialogDetails),
+/* harmony export */   "dialogImage": () => (/* binding */ dialogImage)
+/* harmony export */ });
+/* harmony import */ var _comment_counter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./comment_counter.js */ "./src/modules/comment_counter.js");
+
+
+const closeDialog = (dialog_div, dialog_modal) => {
+
+    const divClose = document.createElement('div');
+    divClose.setAttribute('id', 'dialogCloseDiv');
+    divClose.style.width = '7%';
+    // divClose.style.height = '20%';
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('stroke-width', '1.5');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('class', 'w-6 h-6');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+    path.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    svg.appendChild(path);
+
+    divClose.appendChild(svg);
+
+    divClose.addEventListener('click', () => {
+
+        dialog_div.innerHTML = '';
+        dialog_modal.style.display = 'none';
+        dialog_modal.close();
+
+        document.body.classList.remove('blur');
+    });
+    dialog_div.appendChild(divClose)
+};
+
+const dialogImage = (dialog_content_div, dialog_img) => {
+
+    const dialogImgDiv = document.createElement('div');
+    dialogImgDiv.setAttribute('id', 'dialogImgDiv');
+    dialogImgDiv.style.display = 'flex';
+    dialogImgDiv.style.justifyContent = 'center';
+    dialogImgDiv.style.width = '100%';
+    // dialogImgDiv.style.height = '20%';
+
+    const dialogImg = document.createElement('img');
+    dialogImg.style.display = 'flex';
+    dialogImg.setAttribute('class', 'dialog-img');
+    dialogImg.src = dialog_img;
+    dialogImg.style.width = '50%';
+
+    dialogImgDiv.appendChild(dialogImg)
+
+    dialog_content_div.appendChild(dialogImgDiv)
+};
+
+const dialogDetails = (dialog_content_div, dg_title, dg_author, dg_content, dg_date, dg_url) => {
+
+    const dialogDetailDiv = document.createElement('div');
+    dialogDetailDiv.setAttribute('id', 'dialogDetailDiv');
+    dialogDetailDiv.style.display = 'flex';
+    dialogDetailDiv.style.flexDirection = 'column';
+    dialogDetailDiv.style.justifyContent = 'center';
+    dialogDetailDiv.style.width = '100%';
+    dialogDetailDiv.style.margin = '1rem';
+    // dialogDetailDiv.style.height = '20%';
+
+    const dialogTitle = document.createElement('p');
+    dialogTitle.style.display = 'flex';
+    dialogTitle.style.justifyContent = 'center';
+    dialogTitle.textContent = dg_title;
+    dialogTitle.style.margin = '1rem';
+    dialogTitle.setAttribute('class', 'dialog-title');
+    dialogTitle.style.width = '100%';
+
+    dialogDetailDiv.appendChild(dialogTitle)
+
+    const dialogDetailDivX = document.createElement('div');
+    dialogDetailDivX.setAttribute('id', 'dialogDetailDivX');
+    dialogDetailDivX.style.display = 'flex';
+    dialogDetailDivX.style.justifyContent = 'center';
+    dialogDetailDivX.style.width = '90%';
+    dialogDetailDivX.style.margin = '2rem';
+    dialogDetailDivX.style.gap = '1rem';
+    // dialogDetailDivX.style.height = '20%';
+
+    const dialogDetailDivX1 = document.createElement('div');
+    dialogDetailDivX1.setAttribute('id', 'dialogDetailDivX1');
+    dialogDetailDivX1.style.display = 'flex';
+    dialogDetailDivX1.style.justifyContent = 'center';
+    dialogDetailDivX1.style.flexDirection = 'column';
+    dialogDetailDivX1.style.width = '100%';
+    dialogDetailDivX1.style.gap = '1rem';
+    // dialogDetailDivX1.style.height = '20%';
+
+    const dialogAuthor = document.createElement('p');
+    dialogAuthor.style.display = 'flex';
+    dialogAuthor.style.justifyContent = 'center';
+    dialogAuthor.textContent = dg_author;
+    dialogAuthor.setAttribute('class', 'dialog-author');
+    dialogAuthor.style.width = '100%';
+
+    const dialogDate = document.createElement('p');
+    dialogDate.style.display = 'flex';
+    dialogDate.style.justifyContent = 'center';
+    dialogDate.textContent = dg_content;
+    dialogDate.setAttribute('class', 'dialog-date');
+    dialogDate.style.width = '80%';
+
+    const dialogDetailDivX2 = document.createElement('div');
+    dialogDetailDivX2.setAttribute('id', 'dialogDetailDivX2');
+    dialogDetailDivX2.style.display = 'flex';
+    dialogDetailDivX2.style.flexDirection = 'column';
+    dialogDetailDivX2.style.justifyContent = 'center';
+    dialogDetailDivX2.style.width = '80%';
+    dialogDetailDivX2.style.gap = '1rem';
+    // dialogDetailDivX2.style.height = '20%';
+
+    const dialogUrl = document.createElement('p');
+    dialogUrl.style.display = 'flex';
+    dialogUrl.style.justifyContent = 'center';
+    dialogUrl.textContent = dg_date;
+    dialogUrl.setAttribute('class', 'dialog-url');
+    dialogUrl.style.width = '100%';
+
+    const dialogContent = document.createElement('p');
+    dialogContent.style.display = 'flex';
+    dialogContent.style.justifyContent = 'center';
+    dialogContent.textContent = dg_url;
+    dialogContent.setAttribute('class', 'dialog-content');
+    dialogContent.style.width = '100%';
+
+    dialogDetailDivX1.appendChild(dialogAuthor)
+    dialogDetailDivX1.appendChild(dialogDate)
+
+    dialogDetailDivX2.appendChild(dialogUrl)
+    dialogDetailDivX2.appendChild(dialogContent)
+
+    dialogDetailDivX.appendChild(dialogDetailDivX1)
+    dialogDetailDivX.appendChild(dialogDetailDivX2)
+
+    dialogDetailDiv.appendChild(dialogDetailDivX)
+
+    dialog_content_div.appendChild(dialogDetailDiv)
+};
+
+const addCommentInterface = async (dialog_content_div, item_id) => {
+
+    try {
+
+        await (0,_comment_counter_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
+        
+        const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments';
+
+        const addComment = document.createElement('p');
+        addComment.style.display = 'flex';
+        addComment.style.justifyContent = 'center';
+        addComment.textContent = "Add a comment ";
+        addComment.style.margin = '1rem';
+        addComment.style.width = '100%';
+
+        const inputDiv = document.createElement('div');
+        inputDiv.setAttribute('id', 'input-div');
+        inputDiv.style.display = 'flex';
+        inputDiv.style.justifyContent = 'center';
+        inputDiv.style.flexDirection = 'column';
+        inputDiv.style.width = '100%';
+        inputDiv.style.gap = '1rem';
+
+        const inputCommentName = document.createElement('input');
+        inputCommentName.setAttribute('class', 'commenter-name');
+        inputCommentName.setAttribute('id', 'commenter-name-id');
+        inputCommentName.style.display = 'flex';
+        inputCommentName.style.alignSelf = 'center';
+        inputCommentName.type = 'text';
+        inputCommentName.placeholder = 'Your name';
+        inputCommentName.style.width = '50%';
+
+        const inputYourInsight = document.createElement('input');
+        inputYourInsight.setAttribute('class', 'commenter-insight');
+        inputYourInsight.setAttribute('id', 'commenter-insight-id');
+        inputYourInsight.style.display = 'flex';
+        inputYourInsight.style.alignSelf = 'center';
+        inputYourInsight.type = 'textarea';
+        inputYourInsight.placeholder = 'Your insights';
+        inputYourInsight.style.width = '50%';
+        inputYourInsight.style.height = '5rem';
+
+        dialog_content_div.appendChild(addComment);
+
+        inputDiv.appendChild(inputCommentName);
+        inputDiv.appendChild(inputYourInsight);
+
+        const commentButton = document.createElement('input');
+        commentButton.setAttribute('class', 'commente-button');
+        commentButton.style.display = 'flex';
+        commentButton.style.alignSelf = 'center';
+        commentButton.type = 'button';
+        commentButton.value = 'Comment';
+        commentButton.style.padding = '0.5rem';
+        commentButton.style.margin = '1rem';
+        commentButton.addEventListener('click', () => {
+
+            const username = document.getElementById('commenter-name-id').value;
+            const comment = document.getElementById('commenter-insight-id').value;
+
+            addCommentToItem(item_id, username, comment, url);
+
+            document.getElementById('commenter-name-id').value = '';
+            document.getElementById('commenter-insight-id').value = '';
+
+        });
+
+        dialog_content_div.appendChild(inputDiv);
+
+        dialog_content_div.appendChild(commentButton);
+
+    } catch (error) { return error; }
+};
+
+const addCommentToItem = async (item_id, username, comment, url) => {
+    const data = {
+        item_id,
+        username,
+        comment,
+    };
+    try {
+      const thecomment = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      };
+  
+      const response = await fetch(url, thecomment);
+      const result = await response.json();
+      return result;
+    } catch (error) { return error; }
+  };
+
+/***/ }),
+
+/***/ "./src/modules/comment_counter.js":
+/*!****************************************!*\
+  !*** ./src/modules/comment_counter.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const getcomments = async (itemid) => {
-  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments?item_id=${itemid}`, {
-    method: 'GET',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-  if (response.ok) {
-    const data = await response.json();
-    return data;
-  } return false;
+const dialogCommentCount = async (dialog_content_div, item_id) => {
+
+
+    try {
+
+        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
+        const data = await fetch(URL);
+        const result = await data.json();
+
+        const dialogCommentCount = document.createElement('p');
+        dialogCommentCount.style.display = 'flex';
+        dialogCommentCount.style.justifyContent = 'center';
+        dialogCommentCount.textContent = "Comments ("+Object.keys(result).length+")";
+        if (Object.keys(result) == "error") {
+            dialogCommentCount.textContent = "Comments (0)";
+        }
+        dialogCommentCount.style.margin = '1rem';
+        dialogCommentCount.style.width = '100%';
+
+        dialog_content_div.appendChild(dialogCommentCount)
+
+        
+        const commentBox = document.createElement('div');
+        commentBox.setAttribute('id', 'commentBox');
+        commentBox.style.display = 'flex';
+        commentBox.style.justifyContent = 'center';
+        commentBox.style.flexDirection = 'column';
+        commentBox.style.width = '100%';
+
+        for (let i = 0; i < Object.keys(result).length; i += 1) {
+
+            const commentList = document.createElement('div');
+            commentList.setAttribute('id', 'commentList');
+            commentList.style.display = 'flex';
+            commentList.style.justifyContent = 'center';
+            commentList.style.width = '100%';
+    
+            const commentDate = document.createElement('p');
+            commentDate.style.display = 'flex';
+            commentDate.style.justifyContent = 'center';
+            commentDate.style.paddingRight = '0.5rem';
+            commentDate.textContent = result[i].creation_date+" ";
+
+            const actualComment = document.createElement('p');
+            actualComment.style.display = 'flex';
+            actualComment.style.justifyContent = 'center';
+            actualComment.style.paddingRight = '0.5rem';
+            actualComment.textContent = result[i].comment+" ";
+
+            const commenterName = document.createElement('p');
+            commenterName.style.display = 'flex';
+            commenterName.style.justifyContent = 'center';
+            commenterName.style.paddingRight = '0.5rem';
+            commenterName.textContent = result[i].username+": ";
+            
+            commentList.appendChild(commentDate)
+            commentList.appendChild(commenterName)
+            commentList.appendChild(actualComment)
+            
+            commentBox.appendChild(commentList)
+        }
+        
+        dialog_content_div.appendChild(commentBox);
+
+    } catch (error) { return error; }
+
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getcomments);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dialogCommentCount);
 
 /***/ }),
 
@@ -506,7 +818,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const artistName = 'nothing but thieves';
-const token = 'BQBtiy_YL6Wd7qmz4hCTHhqBkcp1iixQEYoc60VuQYJcINzHyiyj0FgvOL75baS7htTbrr_6h5OClop17pYzDwuhzpKIar2I4qKwhbl1yaDZLYE1TYJ80NK1B4EIUfBiTSdyq0yTwii7u9bJjUoZACYltLVOI9zpFHTMdpY9vpBfZg_9S9hZYhGwqP-q6VgMUkcyQzTOBgbcoSbnNPLgCGgA4gOlS2huz2Dt-0tMn8Xxm-YyzMKdpp87WV-7_GbEukFN6ZvbH_-WcDw__T-P';
+const token = 'BQD7k_98y6qQftm2TDcnD8aYq24U_2H0ZytykktfJTQNVMeGemmehVeX9slynBxoR3tsufgsCNdrzTw48tsRZSlJ5yfRLm5sgF7UDLpurOK6nLo8k8EEHEYm8p2chUsEndmS8GUjkmQdMs9Nk174m1nHJb6B1vfLz6EmDm7G7T7fXsA-MqsPo7xMtlfurSJxljk6MaGr8lsG09NSG3UXBOhm3KlCqXzOLARcEqbduQ1-Sb4GK4oauYgBAOs_kH0qIVyPjeaUuizDDYMZToek';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -599,60 +911,6 @@ const likesforthissearch = async (data, likessaved) => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (likesforthissearch);
-
-/***/ }),
-
-/***/ "./src/modules/loadcomments.js":
-/*!*************************************!*\
-  !*** ./src/modules/loadcomments.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const loadcomments = async (popup, commentsforthis) => {
-  const commentscontainer = popup.querySelector('.commentscontainer');
-  let commentsstr = '';
-  for (let i = 0; i < commentsforthis.length; i += 1) {
-    commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
-  }
-  const commentselementcontainer = document.createElement('div');
-  commentselementcontainer.innerHTML = commentsstr;
-  commentscontainer.innerHTML = '';
-  commentscontainer.appendChild(commentselementcontainer);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadcomments);
-
-/***/ }),
-
-/***/ "./src/modules/postcomment.js":
-/*!************************************!*\
-  !*** ./src/modules/postcomment.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const postcommentfunc = async (name, comment, itemid) => {
-  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N1YfreMOcnHDHjcZrEgf/comments/', {
-    method: 'POST',
-    body: JSON.stringify({
-      item_id: `${itemid}`,
-      username: `${name}`,
-      comment: `${comment}`,
-    }),
-    headers: {
-      'Content-type': 'application/json',
-    },
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postcommentfunc);
 
 /***/ }),
 
@@ -763,9 +1021,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
 /* harmony import */ var _modules_givelikes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/givelikes.js */ "./src/modules/givelikes.js");
 /* harmony import */ var _modules_songelementcounter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/songelementcounter.js */ "./src/modules/songelementcounter.js");
-/* harmony import */ var _modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/postcomment.js */ "./src/modules/postcomment.js");
-/* harmony import */ var _modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/getcomments.js */ "./src/modules/getcomments.js");
-/* harmony import */ var _modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/loadcomments.js */ "./src/modules/loadcomments.js");
+/* harmony import */ var _modules_comment_counter_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/comment_counter.js */ "./src/modules/comment_counter.js");
+/* harmony import */ var _modules_comment_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/comment.js */ "./src/modules/comment.js");
+
+
+
 
 
 
@@ -792,65 +1052,6 @@ const buttonclicklike = (itemid) => {
   updatelike(itemid);
 };
 
-const buttonclickcomment = async (item) => {
-  const popup = document.createElement('div');
-  popup.classList.add('dflex', 'flexcol', 'popupwindow');
-  popup.innerHTML = `
-  <button class="closepopup">X</button>
-  <img class="width500px" src=${item.album.images[0].url}></img>
-  <h1>${item.name}</h1>
-  <div class="dflex spacebetween">
-    <h4>Artist: ${item.artists[0].name}</h4>
-    <h4>Album: ${item.album.name}</h4>
-  </div>
-  <div class="dflex spacebetween">
-    <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
-    <h4>Release date: ${item.album.release_date}</h4>
-  </div>
-  <div class="commentscontainer">
-  </div>
-  <form id="myForm" action="">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div>
-      <label for="comment">Comment:</label>
-      <input type="text" id="comment" name="comment" required>
-    </div>
-    <button class="postcomment">Comment</button>
-  </form>
-  `;
-  document.querySelector('body').appendChild(popup);
-
-  // popup to close
-
-  const closepopup = popup.querySelector('.closepopup');
-  closepopup.addEventListener('click', () => {
-    document.querySelector('body').removeChild(popup);
-  });
-
-  // post comment function
-
-  const postcomment = popup.querySelector('.postcomment');
-  postcomment.addEventListener('click', async (event) => {
-    event.preventDefault();
-    const nameinput = document.getElementById('name');
-    const commentinput = document.getElementById('comment');
-    if (nameinput.value.trim() !== '' && commentinput.value.trim() !== '') {
-      await (0,_modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__["default"])(nameinput.value, commentinput.value, item.id);
-      nameinput.value = '';
-      commentinput.value = '';
-      const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
-      (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
-    }
-  });
-
-  // loading comments
-  const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
-  (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
-};
-
 const render = async () => {
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
@@ -875,8 +1076,51 @@ const render = async () => {
       buttonclicklike(data.tracks.items[i].id);
     });
     const commentbutton = text.querySelector('.commentbutton');
+    commentbutton.style.margin = '1rem';
     commentbutton.addEventListener('click', () => {
-      buttonclickcomment(data.tracks.items[i]);
+      // buttonclickcomment(data.tracks.items[i]);
+
+
+      const modalId = document.getElementById('modal-id');
+      const dialogContent = document.getElementById('dialog-content-id');
+
+      modalId.style.display = 'flex';
+
+      modalId.style.width = '80%';
+      modalId.style.height = '90vh';
+      modalId.style.background = '#fff';
+      modalId.style.margin = '2rem';
+      modalId.style.marginLeft = '3rem';
+      modalId.scrollTop = '0';
+
+      dialogContent.style.width = '100%';
+      dialogContent.style.top = '0';
+      dialogContent.style.background = '#fff';
+      dialogContent.style.margin = '1rem';
+      dialogContent.style.display = 'flex';
+      dialogContent.style.flexDirection = 'column';
+      dialogContent.style.overflowX = 'hidden';
+      dialogContent.scrollTop = '0';
+
+      // window.scrollTo(0, 0);
+
+      (0,_modules_comment_counter_js__WEBPACK_IMPORTED_MODULE_6__["default"])(dialogContent, data.tracks.items[i].name);
+
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.closeDialog)(dialogContent, modalId);
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.dialogImage)(dialogContent, data.tracks.items[i].album.images[0].url);
+      // dialogDetails(dialogContent, data.tracks.items[i].name, element.author, element.content, element.date, element.url);
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.dialogDetails)(dialogContent, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
+        data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify, data.tracks.items[i].album.release_date);
+
+        (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.addCommentInterface)(dialogContent, data.tracks.items[i].name);
+
+        modalId.showModal();
+        modalId.scrollTop = '0';
+
+        // addCommentInterface(dialogContent, data.tracks.items[i].name);
+
+        document.body.classList.add('blur');
+
     });
   }
 };
