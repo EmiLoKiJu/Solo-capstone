@@ -1,4 +1,4 @@
-# Portfolio
+# Group Capstone
 <a name="readme-top"></a>
 
 <div align="center">
