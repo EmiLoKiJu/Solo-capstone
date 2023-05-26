@@ -92,7 +92,7 @@ Clone this repository to your desired folder:
 
 <!-- Install this project with: -->
 
-Clone this repository to your desired folder:
+After cloning, open the git.bash or terminal, go to the folder and run:
 
 npm install
 
@@ -113,6 +113,12 @@ npm test
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
+
+👤 **Gabriel Rozas**
+
+- GitHub: [@EmiLoKiJu](https://github.com/EmiLoKiJu)
+- Twitter: [@GabrielRozas12](https://twitter.com/GabrielRozas12)
+- LinkedIn: [grozas](https://www.linkedin.com/in/grozas/)
 
 👤 **Abiy Hussen Aman**
 
