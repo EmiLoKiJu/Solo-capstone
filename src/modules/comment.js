@@ -32,12 +32,12 @@ export const closeDialog = (dialogDiv, dialogModal) => {
 };
 
 export const dialogImage = (dialogContentDiv, dialogImg) => {
+
   const dialogImgDiv = document.createElement('div');
   dialogImgDiv.setAttribute('id', 'dialogImgDiv');
   dialogImgDiv.style.display = 'flex';
   dialogImgDiv.style.justifyContent = 'center';
   dialogImgDiv.style.width = '100%';
-  // dialogImgDiv.style.height = '20%';
 
   const dialogImgX = document.createElement('img');
   dialogImgX.style.display = 'flex';
@@ -59,7 +59,6 @@ export const dialogDetails = (dialogContentDiv, dgTitle, dgAuthor,
   dialogDetailDiv.style.justifyContent = 'center';
   dialogDetailDiv.style.width = '100%';
   dialogDetailDiv.style.margin = '1rem';
-  // dialogDetailDiv.style.height = '20%';
 
   const dialogTitle = document.createElement('p');
   dialogTitle.style.display = 'flex';
@@ -140,11 +139,11 @@ export const dialogDetails = (dialogContentDiv, dgTitle, dgAuthor,
   dialogContentDiv.appendChild(dialogDetailDiv);
 };
 
-const addCommentToItem = async (iteMId, username, comment, url) => {
+const addCommentToItem = async (item_id, username, comment, url) => {
   const data = {
-    iteMId,
-    username,
-    comment,
+      item_id,
+      username,
+      comment,
   };
   try {
     const thecomment = {
@@ -161,82 +160,79 @@ const addCommentToItem = async (iteMId, username, comment, url) => {
   } catch (error) { return error; }
 };
 
-export const addCommentInterface = async (dialogContentDiv, dialogCommentDiv, iteMId) => {
+export const addCommentInterface = async (dialogContentDiv, dialogCommentDiv, itemId) => {
+
   try {
-    const url = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments', {
-      method: 'GET',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
-    const urldata = await url.json();
 
-    const addComment = document.createElement('p');
-    addComment.style.display = 'flex';
-    addComment.style.justifyContent = 'center';
-    addComment.textContent = 'Add a comment ';
-    addComment.style.margin = '1rem';
-    addComment.style.width = '100%';
+      const addComment = document.createElement('p');
+      addComment.style.display = 'flex';
+      addComment.style.justifyContent = 'center';
+      addComment.textContent = "Add a comment ";
+      addComment.style.margin = '1rem';
+      addComment.style.width = '100%';
 
-    const inputDiv = document.createElement('div');
-    inputDiv.setAttribute('id', 'input-div');
-    inputDiv.style.display = 'flex';
-    inputDiv.style.justifyContent = 'center';
-    inputDiv.style.flexDirection = 'column';
-    inputDiv.style.width = '100%';
-    inputDiv.style.gap = '1rem';
+      const inputDiv = document.createElement('div');
+      inputDiv.setAttribute('id', 'input-div');
+      inputDiv.style.display = 'flex';
+      inputDiv.style.justifyContent = 'center';
+      inputDiv.style.flexDirection = 'column';
+      inputDiv.style.width = '100%';
+      inputDiv.style.gap = '1rem';
 
-    const inputCommentName = document.createElement('input');
-    inputCommentName.setAttribute('class', 'commenter-name');
-    inputCommentName.setAttribute('id', 'commenter-name-id');
-    inputCommentName.style.display = 'flex';
-    inputCommentName.style.alignSelf = 'center';
-    inputCommentName.type = 'text';
-    inputCommentName.placeholder = 'Your name';
-    inputCommentName.style.width = '50%';
+      const inputCommentName = document.createElement('input');
+      inputCommentName.setAttribute('class', 'commenter-name');
+      inputCommentName.setAttribute('id', 'commenter-name-id');
+      inputCommentName.style.display = 'flex';
+      inputCommentName.style.alignSelf = 'center';
+      inputCommentName.type = 'text';
+      inputCommentName.placeholder = 'Your name';
+      inputCommentName.style.width = '50%';
 
-    const inputYourInsight = document.createElement('input');
-    inputYourInsight.setAttribute('class', 'commenter-insight');
-    inputYourInsight.setAttribute('id', 'commenter-insight-id');
-    inputYourInsight.style.display = 'flex';
-    inputYourInsight.style.alignSelf = 'center';
-    inputYourInsight.type = 'textarea';
-    inputYourInsight.placeholder = 'Your insights';
-    inputYourInsight.style.width = '50%';
-    inputYourInsight.style.height = '5rem';
+      const inputYourInsight = document.createElement('input');
+      inputYourInsight.setAttribute('class', 'commenter-insight');
+      inputYourInsight.setAttribute('id', 'commenter-insight-id');
+      inputYourInsight.style.display = 'flex';
+      inputYourInsight.style.alignSelf = 'center';
+      inputYourInsight.type = 'textarea';
+      inputYourInsight.placeholder = 'Your insights';
+      inputYourInsight.style.width = '50%';
+      inputYourInsight.style.height = '5rem';
 
-    inputDiv.appendChild(addComment);
+      inputDiv.appendChild(addComment);
 
-    inputDiv.appendChild(inputCommentName);
-    inputDiv.appendChild(inputYourInsight);
+      inputDiv.appendChild(inputCommentName);
+      inputDiv.appendChild(inputYourInsight);
 
-    const commentButton = document.createElement('input');
-    commentButton.setAttribute('class', 'commente-button');
-    commentButton.style.display = 'flex';
-    commentButton.style.alignSelf = 'center';
-    commentButton.type = 'button';
-    commentButton.value = 'Comment';
-    commentButton.style.padding = '0.5rem';
-    commentButton.style.margin = '1rem';
-    commentButton.addEventListener('click', async () => {
-      const username = document.getElementById('commenter-name-id').value;
-      const comment = document.getElementById('commenter-insight-id').value;
+      const commentButton = document.createElement('input');
+      commentButton.setAttribute('class', 'commente-button');
+      commentButton.style.display = 'flex';
+      commentButton.style.alignSelf = 'center';
+      commentButton.type = 'button';
+      commentButton.value = 'Comment';
+      commentButton.style.padding = '0.5rem';
+      commentButton.style.margin = '1rem';
+      commentButton.addEventListener('click', async () => {
+          
+          const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments';
+      
+          const username = document.getElementById('commenter-name-id').value;
+          const comment = document.getElementById('commenter-insight-id').value;
 
-      await addCommentToItem(iteMId, username, comment, urldata);
-      if (username.trim() !== '' && comment.trim() !== '') {
-        document.getElementById('commenter-name-id').value = '';
-        document.getElementById('commenter-insight-id').value = '';
-      }
+              await addCommentToItem(itemId, username, comment, url);
 
-      dialogCommentDiv.innerHTML = '';
+              document.getElementById('commenter-name-id').value = '';
+              document.getElementById('commenter-insight-id').value = '';
 
-      await dialogCommentCount(dialogCommentDiv, iteMId);
-    });
+              dialogCommentDiv.innerHTML = '';
 
-    inputDiv.appendChild(commentButton);
+              await dialogCommentCount(dialogCommentDiv, itemId);
 
-    dialogContentDiv.appendChild(inputDiv);
+      });
 
-    return urldata;
+      inputDiv.appendChild(commentButton);
+
+      dialogContentDiv.appendChild(inputDiv);
+
+
   } catch (error) { return error; }
 };
