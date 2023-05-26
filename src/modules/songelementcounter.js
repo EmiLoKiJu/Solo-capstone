@@ -1,4 +1,4 @@
-const songelementcounter = (cont) => {
+const songelementcounter = async (cont) => {
   const arrayofsongs = document.querySelectorAll('.songelementcontainer');
   const counter = document.createElement('h3');
   counter.innerText = arrayofsongs.length;
