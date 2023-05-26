@@ -34,7 +34,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Group Capstone PRJECT] <a name="about-project"></a>
+# 📖 [Group Capstone PROJECT] <a name="about-project"></a>
 
 **[Abiy Capstone One]** This is a Group Capstone project created during Microverse completion of module two. 
 
