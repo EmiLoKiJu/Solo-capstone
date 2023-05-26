@@ -17,7 +17,6 @@ describe('commentscounter', () => {
       </body>
     </html>`);
     global.document = dom.window.document;
-    const bodyelement = document.querySelector('body');
 
     // Act
     const result = commentscounter();
@@ -44,8 +43,7 @@ describe('commentscounter', () => {
       </body>
     </html>`);
     global.document = dom.window.document;
-    const bodyelement = document.querySelector('body');
-
+    
     // Act
     const result = commentscounter();
 
