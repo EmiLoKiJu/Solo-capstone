@@ -87,7 +87,7 @@ const buttonclickcomment = async (item) => {
 
   // loading comments
   const commentsforthis = await getcomments(item.id);
-  const loadedcomments = await loadcomments(popup, commentsforthis);
+  await loadcomments(popup, commentsforthis);
 
   // counting comments
   await commentscounter();

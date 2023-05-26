@@ -43,14 +43,13 @@ describe('commentscounter', () => {
       </body>
     </html>`);
     global.document = dom.window.document;
-    
+
     // Act
     const result = commentscounter();
 
     // Assert
     expect(result).toBe(8);
   });
-
 });
 
 // counting items
