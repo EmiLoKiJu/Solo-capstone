@@ -147,8 +147,6 @@ export const addCommentInterface = async (dialog_content_div, dialog_comment_div
 
     try {
         
-        const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments';
-
         const addComment = document.createElement('p');
         addComment.style.display = 'flex';
         addComment.style.justifyContent = 'center';
@@ -183,7 +181,6 @@ export const addCommentInterface = async (dialog_content_div, dialog_comment_div
         inputYourInsight.style.width = '50%';
         inputYourInsight.style.height = '5rem';
 
-        // dialog_content_div.appendChild(addComment);
         inputDiv.appendChild(addComment);
 
         inputDiv.appendChild(inputCommentName);
@@ -201,13 +198,15 @@ export const addCommentInterface = async (dialog_content_div, dialog_comment_div
             const username = document.getElementById('commenter-name-id').value;
             const comment = document.getElementById('commenter-insight-id').value;
             if (username.trim() !== '' && comment.trim() !== '') {
+
+                const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments';
+
                 await addCommentToItem(item_id, username, comment, url);
+
                 document.getElementById('commenter-name-id').value = '';
                 document.getElementById('commenter-insight-id').value = '';
 
                 dialog_comment_div.innerHTML = '';
-
-                await dialogCommentCount2(dialog_comment_div, item_id);
 
                 await dialogCommentCount(dialog_comment_div, item_id);
             }
@@ -217,8 +216,6 @@ export const addCommentInterface = async (dialog_content_div, dialog_comment_div
         inputDiv.appendChild(commentButton);
 
         dialog_content_div.appendChild(inputDiv);
-
-        // dialog_content_div.appendChild(commentButton);
         
 
     } catch (error) { return error; }

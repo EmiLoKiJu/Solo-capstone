@@ -1,18 +1,6 @@
-export const dialogCommentCount = async (dialog_content_div, item_id) => {
+const update_Comment_Count = (result, diag_comment_div) => {
 
-    try {
-
-        dialog_content_div.innerHTML = '';
-
-
-        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
-        const data = await fetch(URL, {
-                method: 'GET',
-                headers: {
-                  'Content-type': 'application/json',
-                },
-              });
-        const result = await data.json();
+        diag_comment_div.innerHTML = '';
 
         const dialogCommentCount = document.createElement('p');
         dialogCommentCount.style.display = 'flex';
@@ -24,7 +12,7 @@ export const dialogCommentCount = async (dialog_content_div, item_id) => {
         dialogCommentCount.style.margin = '1rem';
         dialogCommentCount.style.width = '100%';
 
-        dialog_content_div.appendChild(dialogCommentCount)
+        diag_comment_div.appendChild(dialogCommentCount)
 
         const commentBox = document.createElement('div');
         commentBox.setAttribute('id', 'commentBox');
@@ -66,7 +54,26 @@ export const dialogCommentCount = async (dialog_content_div, item_id) => {
             commentBox.appendChild(commentList)
         }
         
-        dialog_content_div.appendChild(commentBox);
+        diag_comment_div.appendChild(commentBox);
+
+};
+
+export const dialogCommentCount = async (dialog_content_div, item_id) => {
+
+    try {
+
+        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
+        const data = await fetch(URL, {
+                method: 'GET',
+                headers: {
+                  'Content-type': 'application/json',
+                },
+              });
+        const result = await data.json();
+
+        diag_comment_sec.innerHTML = '';
+
+        return update_Comment_Count(result, diag_comment_sec);
 
     } catch (error) { return error; }
 
