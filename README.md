@@ -18,6 +18,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
+  - [Video Presentation](#video-presentation)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
@@ -69,17 +70,17 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
+### Video presentation <a name="video-presentation"></a>
 
-* To clone the repository
-* Double click the index.html file and open in your favourite browser
+Feel free to look our video:
+https://drive.google.com/file/d/1tPfgJY3qLMt5_5EtmInSsrsirBWmoL5N/view?usp=sharing
 
 ### Prerequisites
 
 In order to run this project you need:
 
-* To clone the repository
-* A browser
+A browser with HMTL5 and CSS3
+Install Google Chrome or any browser that supports the above.
 
 ### Setup
 
