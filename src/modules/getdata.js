@@ -1,5 +1,5 @@
 const artistName = 'nothing but thieves';
-const token = 'BQBlWfZhJ8LrZ7bH7KW22hAsbz3AskHI3nrzNU8ZvYx7VvP2EtJkEjzxHGOTuh4YUGBM_HnKSoWfftmYYT45af7_0Iu4fkrynPLYB_zHDDx5hDsVbiz5wkVvXe1YqeTRAD7qIcRKc6I8vlye3OojodKn0_m_hVuBNot5lsjLIRCnX9eYs5l0H_pBgUHaUJPTIMzsIV6jFfRVRmqBHhoIvdLWRhqMUvERTQIEBAXCvqKBeRJE4I2CqEP_Jnmfq_EIJqt5NDGETJ-ERX7aKAa1';
+const token = 'BQCaVsZM4Vq1btIDOfUGmm3QgT-rU6VUolScdYN8J_Czin49iDIZQsYi0Z64ra2OGOoOOZhYvnK-hjN78GhHT-Zm2SJvNL139q0a_5Lfp41njGZCSvlrsOyOCr8aXUW15k98TEknuF5icx4QyAbd8znoEBB7551ra-eaZYNhZDZ_LVpw-JiFK70J3fnQmCT8ySlAhCBHLupYAD5VxCc5upgqJ8udMUT1KIxuaysGQXta4ng6_HHRNEqdCvNmXcW3ou1W9r7ekj7otAToZEey';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {

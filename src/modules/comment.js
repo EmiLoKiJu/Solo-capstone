@@ -197,19 +197,19 @@ export const addCommentInterface = async (dialog_content_div, dialog_comment_div
         commentButton.value = 'Comment';
         commentButton.style.padding = '0.5rem';
         commentButton.style.margin = '1rem';
-        commentButton.addEventListener('click', () => {
+        commentButton.addEventListener('click', async () => {
             const username = document.getElementById('commenter-name-id').value;
             const comment = document.getElementById('commenter-insight-id').value;
             if (username.trim() !== '' && comment.trim() !== '') {
-                addCommentToItem(item_id, username, comment, url);
+                await addCommentToItem(item_id, username, comment, url);
                 document.getElementById('commenter-name-id').value = '';
                 document.getElementById('commenter-insight-id').value = '';
 
                 dialog_comment_div.innerHTML = '';
 
-                dialogCommentCount2(dialog_comment_div, item_id);
+                await dialogCommentCount2(dialog_comment_div, item_id);
 
-                dialogCommentCount(dialog_comment_div, item_id);
+                await dialogCommentCount(dialog_comment_div, item_id);
             }
 
         });

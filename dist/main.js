@@ -489,7 +489,6 @@ const closeDialog = (dialog_div, dialog_modal) => {
     const divClose = document.createElement('div');
     divClose.setAttribute('id', 'dialogCloseDiv');
     divClose.style.width = '7%';
-    // divClose.style.height = '20%';
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
@@ -628,11 +627,9 @@ const dialogDetails = (dialog_content_div, dg_title, dg_author, dg_content, dg_d
     dialog_content_div.appendChild(dialogDetailDiv)
 };
 
-const addCommentInterface = async (dialog_content_div, item_id) => {
+const addCommentInterface = async (dialog_content_div, dialog_comment_div, item_id) => {
 
     try {
-
-        await (0,_comment_counter_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
         
         const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments';
 
@@ -670,7 +667,8 @@ const addCommentInterface = async (dialog_content_div, item_id) => {
         inputYourInsight.style.width = '50%';
         inputYourInsight.style.height = '5rem';
 
-        dialog_content_div.appendChild(addComment);
+        // dialog_content_div.appendChild(addComment);
+        inputDiv.appendChild(addComment);
 
         inputDiv.appendChild(inputCommentName);
         inputDiv.appendChild(inputYourInsight);
@@ -690,12 +688,22 @@ const addCommentInterface = async (dialog_content_div, item_id) => {
                 addCommentToItem(item_id, username, comment, url);
                 document.getElementById('commenter-name-id').value = '';
                 document.getElementById('commenter-insight-id').value = '';
+
+                dialog_comment_div.innerHTML = '';
+
+                (0,_comment_counter_js__WEBPACK_IMPORTED_MODULE_0__.dialogCommentCount2)(dialog_comment_div, item_id);
+
+                (0,_comment_counter_js__WEBPACK_IMPORTED_MODULE_0__.dialogCommentCount)(dialog_comment_div, item_id);
             }
+
         });
+
+        inputDiv.appendChild(commentButton);
 
         dialog_content_div.appendChild(inputDiv);
 
-        dialog_content_div.appendChild(commentButton);
+        // dialog_content_div.appendChild(commentButton);
+        
 
     } catch (error) { return error; }
 };
@@ -731,15 +739,23 @@ const addCommentToItem = async (item_id, username, comment, url) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "dialogCommentCount": () => (/* binding */ dialogCommentCount),
+/* harmony export */   "dialogCommentCount2": () => (/* binding */ dialogCommentCount2)
 /* harmony export */ });
 const dialogCommentCount = async (dialog_content_div, item_id) => {
 
-
     try {
 
+        dialog_content_div.innerHTML = '';
+
+
         const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
-        const data = await fetch(URL);
+        const data = await fetch(URL, {
+                method: 'GET',
+                headers: {
+                  'Content-type': 'application/json',
+                },
+              });
         const result = await data.json();
 
         const dialogCommentCount = document.createElement('p');
@@ -754,7 +770,6 @@ const dialogCommentCount = async (dialog_content_div, item_id) => {
 
         dialog_content_div.appendChild(dialogCommentCount)
 
-        
         const commentBox = document.createElement('div');
         commentBox.setAttribute('id', 'commentBox');
         commentBox.style.display = 'flex';
@@ -801,7 +816,29 @@ const dialogCommentCount = async (dialog_content_div, item_id) => {
 
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dialogCommentCount);
+
+const dialogCommentCount2 = async (dialog_content_div, item_id) => {
+
+    try {
+
+        dialog_content_div.innerHTML = '';
+
+
+        const URL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/WdJx4eRTz6sSqysQlKxy/comments?item_id=${item_id}`;
+        const data = await fetch(URL, {
+                method: 'GET',
+                headers: {
+                  'Content-type': 'application/json',
+                },
+              });
+        const result = await data.json();
+
+        return result;
+
+    } catch (error) { return error; }
+
+};
+// export default dialogCommentCount;
 
 /***/ }),
 
@@ -816,7 +853,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const artistName = 'nothing but thieves';
-const token = 'BQD7k_98y6qQftm2TDcnD8aYq24U_2H0ZytykktfJTQNVMeGemmehVeX9slynBxoR3tsufgsCNdrzTw48tsRZSlJ5yfRLm5sgF7UDLpurOK6nLo8k8EEHEYm8p2chUsEndmS8GUjkmQdMs9Nk174m1nHJb6B1vfLz6EmDm7G7T7fXsA-MqsPo7xMtlfurSJxljk6MaGr8lsG09NSG3UXBOhm3KlCqXzOLARcEqbduQ1-Sb4GK4oauYgBAOs_kH0qIVyPjeaUuizDDYMZToek';
+const token = 'BQBlWfZhJ8LrZ7bH7KW22hAsbz3AskHI3nrzNU8ZvYx7VvP2EtJkEjzxHGOTuh4YUGBM_HnKSoWfftmYYT45af7_0Iu4fkrynPLYB_zHDDx5hDsVbiz5wkVvXe1YqeTRAD7qIcRKc6I8vlye3OojodKn0_m_hVuBNot5lsjLIRCnX9eYs5l0H_pBgUHaUJPTIMzsIV6jFfRVRmqBHhoIvdLWRhqMUvERTQIEBAXCvqKBeRJE4I2CqEP_Jnmfq_EIJqt5NDGETJ-ERX7aKAa1';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -1032,8 +1069,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 const musiccontainer = document.querySelector('.musiccontainer');
 const countercontainer = document.querySelector('h2');
 
@@ -1073,14 +1108,19 @@ const render = async () => {
     likebutton.addEventListener('click', () => {
       buttonclicklike(data.tracks.items[i].id);
     });
+
     const commentbutton = text.querySelector('.commentbutton');
     commentbutton.style.margin = '1rem';
     commentbutton.addEventListener('click', () => {
-      // buttonclickcomment(data.tracks.items[i]);
 
 
       const modalId = document.getElementById('modal-id');
       const dialogContent = document.getElementById('dialog-content-id');
+      const dialogComment = document.getElementById('dialog-comment-id');
+      const dialogClose = document.getElementById('dialog-close-id');
+      const dialogImg = document.getElementById('dialog-img-id');
+      const dialogDetail = document.getElementById('dialog-detail-id');
+      const dialogInput = document.getElementById('dialog-input-id');
 
       modalId.style.display = 'flex';
 
@@ -1100,22 +1140,24 @@ const render = async () => {
       dialogContent.style.overflowX = 'hidden';
       dialogContent.scrollTop = '0';
 
-      // window.scrollTo(0, 0);
+      dialogComment.innerHTML = '';
+      (0,_modules_comment_counter_js__WEBPACK_IMPORTED_MODULE_6__.dialogCommentCount)(dialogComment, data.tracks.items[i].name);
 
-      (0,_modules_comment_counter_js__WEBPACK_IMPORTED_MODULE_6__["default"])(dialogContent, data.tracks.items[i].name);
+      dialogClose.innerHTML = '';
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.closeDialog)(dialogClose, modalId);
 
-      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.closeDialog)(dialogContent, modalId);
-      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.dialogImage)(dialogContent, data.tracks.items[i].album.images[0].url);
-      // dialogDetails(dialogContent, data.tracks.items[i].name, element.author, element.content, element.date, element.url);
-      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.dialogDetails)(dialogContent, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
+      dialogImg.innerHTML = '';
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.dialogImage)(dialogImg, data.tracks.items[i].album.images[0].url);
+
+      dialogDetail.innerHTML = '';
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.dialogDetails)(dialogDetail, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
         data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify, data.tracks.items[i].album.release_date);
 
-        (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.addCommentInterface)(dialogContent, data.tracks.items[i].name);
+      dialogInput.innerHTML = '';
+      (0,_modules_comment_js__WEBPACK_IMPORTED_MODULE_7__.addCommentInterface)(dialogInput, dialogComment, data.tracks.items[i].name);
 
         modalId.showModal();
         modalId.scrollTop = '0';
-
-        // addCommentInterface(dialogContent, data.tracks.items[i].name);
 
         document.body.classList.add('blur');
 

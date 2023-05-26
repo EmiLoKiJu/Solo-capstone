@@ -51,7 +51,7 @@ const render = async () => {
 
     const commentbutton = text.querySelector('.commentbutton');
     commentbutton.style.margin = '1rem';
-    commentbutton.addEventListener('click', () => {
+    commentbutton.addEventListener('click', async () => {
 
 
       const modalId = document.getElementById('modal-id');
@@ -81,7 +81,7 @@ const render = async () => {
       dialogContent.scrollTop = '0';
 
       dialogComment.innerHTML = '';
-      dialogCommentCount(dialogComment, data.tracks.items[i].name);
+      await dialogCommentCount(dialogComment, data.tracks.items[i].name);
 
       dialogClose.innerHTML = '';
       closeDialog(dialogClose, modalId);
