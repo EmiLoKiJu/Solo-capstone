@@ -33,7 +33,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Leaderboard PRJECT] <a name="about-project"></a>
+# 📖 [Group Capstone PRJECT] <a name="about-project"></a>
 
 **[Abiy Capstone One]** This is a Group Capstone project created during Microverse completion of module two. 
 
@@ -60,7 +60,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Leaderboard is configured**
+- **Data is send to and from API is configured**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

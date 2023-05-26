@@ -6,8 +6,9 @@ import giveLikes from './modules/givelikes.js';
 import songelementcounter from './modules/songelementcounter.js';
 
 import { dialogCommentCount } from './modules/comment_counter.js';
-import { closeDialog, dialogImage, dialogDetails, addCommentInterface } from './modules/comment.js';
-
+import {
+  closeDialog, dialogImage, dialogDetails, addCommentInterface,
+} from './modules/comment.js';
 
 const musiccontainer = document.querySelector('.musiccontainer');
 const countercontainer = document.querySelector('h2');
@@ -52,8 +53,6 @@ const render = async () => {
     const commentbutton = text.querySelector('.commentbutton');
     commentbutton.style.margin = '1rem';
     commentbutton.addEventListener('click', async () => {
-
-
       const modalId = document.getElementById('modal-id');
       const dialogContent = document.getElementById('dialog-content-id');
       const dialogComment = document.getElementById('dialog-comment-id');
@@ -90,17 +89,17 @@ const render = async () => {
       dialogImage(dialogImg, data.tracks.items[i].album.images[0].url);
 
       dialogDetail.innerHTML = '';
-      dialogDetails(dialogDetail, data.tracks.items[i].name, data.tracks.items[i].artists[0].name, 
-        data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify, data.tracks.items[i].album.release_date);
+      dialogDetails(dialogDetail, data.tracks.items[i].name, data.tracks.items[i].artists[0].name,
+        data.tracks.items[i].album.name, data.tracks.items[i].external_urls.spotify,
+        data.tracks.items[i].album.release_date);
 
       dialogInput.innerHTML = '';
       addCommentInterface(dialogInput, dialogComment, data.tracks.items[i].name);
 
-        modalId.showModal();
-        modalId.scrollTop = '0';
+      modalId.showModal();
+      modalId.scrollTop = '0';
 
-        document.body.classList.add('blur');
-
+      document.body.classList.add('blur');
     });
   }
 };
