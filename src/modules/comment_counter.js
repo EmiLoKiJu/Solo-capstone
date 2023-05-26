@@ -58,7 +58,7 @@ const update_Comment_Count = (result, diag_comment_div) => {
 
 };
 
-export const dialogCommentCount = async (dialog_content_div, item_id) => {
+export const dialogCommentCount = async (diag_comment_sec, item_id) => {
 
     try {
 
