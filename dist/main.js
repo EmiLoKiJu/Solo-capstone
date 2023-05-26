@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,8BAA8B;EAC9B,UAAU;AACZ;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,UAAU;EACV,mBAAmB;EACnB,uBAAuB;EACvB,aAAa;EACb,uBAAuB;EACvB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;AACb","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 80%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width500px {\r\n  max-width: 500px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  width: 80%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: white;\r\n  margin-top: 32px;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 32px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 100%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width450px {\r\n  max-width: 450px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: rgba(255, 255, 255, 0.5); /* Transparent background */\r\n  backdrop-filter: blur(8px); /* Apply blur effect */\r\n  overflow-y: hidden;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 128px;\r\n}\r\n\r\n.overflowauto {\r\n  height: 70px;\r\n  overflow: auto;\r\n  margin: 12px;\r\n  border: 2px solid black;\r\n  width: 95%;\r\n}\r\n\r\n.commentscontainer {\r\n  width: 100%;\r\n}\r\n\r\n.popuplittle {\r\n  background-color: white;\r\n  width: 85%;\r\n  height: 85%;\r\n  padding: 24px;\r\n}\r\n\r\n.likescontainer {\r\n  margin: 16px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,sCAAsC;EACtC,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,8BAA8B;EAC9B,WAAW;AACb;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,aAAa;AACf;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,UAAU;EACV,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,MAAM;EACN,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,uBAAuB;EACvB,aAAa;EACb,0CAA0C,EAAE,2BAA2B;EACvE,0BAA0B,EAAE,sBAAsB;EAClD,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,cAAc;EACd,YAAY;EACZ,uBAAuB;EACvB,UAAU;AACZ;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,uBAAuB;EACvB,UAAU;EACV,WAAW;EACX,aAAa;AACf;;AAEA;EACE,YAAY;AACd","sourcesContent":["body {\r\n  text-align: center;\r\n  font-family: 'Crete Round', sans-serif;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 16px 0 0 0;\r\n}\r\n\r\nfooter {\r\n  margin-bottom: 32px;\r\n}\r\n\r\nimg {\r\n  object-fit: contain;\r\n}\r\n\r\nh3 {\r\n  margin: 0 8px;\r\n  font-size: 30px;\r\n}\r\n\r\nh2 {\r\n  margin: 12px 12px;\r\n  font-size: 30px;\r\n}\r\n\r\nh4 {\r\n  margin: 0 8px;\r\n  font-size: 20px;\r\n  font-weight: 100;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\n.dflex {\r\n  display: flex;\r\n}\r\n\r\n.spacebetween {\r\n  justify-content: space-between;\r\n  width: 100%;\r\n}\r\n\r\n.flexcol {\r\n  flex-direction: column;\r\n}\r\n\r\n.dgrid3 {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 10px;\r\n}\r\n\r\n.width450px {\r\n  max-width: 450px;\r\n}\r\n\r\n.songelementcontainer {\r\n  align-items: center;\r\n  height: 530px;\r\n}\r\n\r\n.spotifyicon {\r\n  width: 64px;\r\n}\r\n\r\n.likebutton {\r\n  height: 24px;\r\n  margin: 0 8px;\r\n}\r\n\r\n.spanline1 {\r\n  background-color: #001f3f;\r\n  height: 2px;\r\n  width: 60%;\r\n  margin: 32px 0;\r\n}\r\n\r\n.popupwindow {\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  align-items: center;\r\n  border: 2px solid black;\r\n  padding: 32px;\r\n  background-color: rgba(255, 255, 255, 0.5); /* Transparent background */\r\n  backdrop-filter: blur(8px); /* Apply blur effect */\r\n  overflow-y: hidden;\r\n}\r\n\r\n.closepopup {\r\n  position: absolute;\r\n  right: 128px;\r\n}\r\n\r\n.overflowauto {\r\n  height: 70px;\r\n  overflow: auto;\r\n  margin: 12px;\r\n  border: 2px solid black;\r\n  width: 95%;\r\n}\r\n\r\n.commentscontainer {\r\n  width: 100%;\r\n}\r\n\r\n.popuplittle {\r\n  background-color: white;\r\n  width: 85%;\r\n  height: 85%;\r\n  padding: 24px;\r\n}\r\n\r\n.likescontainer {\r\n  margin: 16px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -468,6 +468,26 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/commentscounter.js":
+/*!****************************************!*\
+  !*** ./src/modules/commentscounter.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const commentscounter = async () => {
+  const arrayofcomments = document.querySelectorAll('.commentelement');
+  const counterelement = document.querySelector('.commentscounter');
+  counterelement.innerText = `Comments: ${arrayofcomments.length}`;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (commentscounter);
+
+/***/ }),
+
 /***/ "./src/modules/getcomments.js":
 /*!************************************!*\
   !*** ./src/modules/getcomments.js ***!
@@ -506,7 +526,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const artistName = 'nothing but thieves';
-const token = 'BQBtiy_YL6Wd7qmz4hCTHhqBkcp1iixQEYoc60VuQYJcINzHyiyj0FgvOL75baS7htTbrr_6h5OClop17pYzDwuhzpKIar2I4qKwhbl1yaDZLYE1TYJ80NK1B4EIUfBiTSdyq0yTwii7u9bJjUoZACYltLVOI9zpFHTMdpY9vpBfZg_9S9hZYhGwqP-q6VgMUkcyQzTOBgbcoSbnNPLgCGgA4gOlS2huz2Dt-0tMn8Xxm-YyzMKdpp87WV-7_GbEukFN6ZvbH_-WcDw__T-P';
+const token = 'BQDOXCpTa6EmrHvqRzpRozbsay06Zb7NlEscx8wJJRKC0l9CRx696KGue7Wjwy13BPqToBgf7QPPQdOhCiHrcqgIqzPGFZgCQVyW7eDl7dk7VDyh8J7ZOfzq7v68Tn-W7Ousy_-7SXTuigqXFTJsY57bAvo8Oc0UhkriWKqPFn2TNz7vYkBvorUMj3C3U3oDqgHH0O1oJg3NB9zIsG3d8rbQzstlGj9xNSQhEasWJfmApBcPsR0wH0pw1M50rryrHaBgS-Kg1k39qGUhGPBM';
 
 const getdata = async () => {
   const response = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=track`, {
@@ -619,9 +639,11 @@ const loadcomments = async (popup, commentsforthis) => {
     commentsstr += `<div class="commentelement">${commentsforthis[i].creation_date} ${commentsforthis[i].username}: ${commentsforthis[i].comment}</div>`;
   }
   const commentselementcontainer = document.createElement('div');
+  commentselementcontainer.classList.add('overflowauto');
   commentselementcontainer.innerHTML = commentsstr;
   commentscontainer.innerHTML = '';
   commentscontainer.appendChild(commentselementcontainer);
+  return true;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadcomments);
@@ -666,7 +688,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const songelementcounter = (cont) => {
+const songelementcounter = async (cont) => {
   const arrayofsongs = document.querySelectorAll('.songelementcontainer');
   const counter = document.createElement('h3');
   counter.innerText = arrayofsongs.length;
@@ -766,6 +788,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_postcomment_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/postcomment.js */ "./src/modules/postcomment.js");
 /* harmony import */ var _modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/getcomments.js */ "./src/modules/getcomments.js");
 /* harmony import */ var _modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/loadcomments.js */ "./src/modules/loadcomments.js");
+/* harmony import */ var _modules_commentscounter_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/commentscounter.js */ "./src/modules/commentscounter.js");
+
 
 
 
@@ -796,30 +820,35 @@ const buttonclickcomment = async (item) => {
   const popup = document.createElement('div');
   popup.classList.add('dflex', 'flexcol', 'popupwindow');
   popup.innerHTML = `
-  <button class="closepopup">X</button>
-  <img class="width500px" src=${item.album.images[0].url}></img>
-  <h1>${item.name}</h1>
-  <div class="dflex spacebetween">
-    <h4>Artist: ${item.artists[0].name}</h4>
-    <h4>Album: ${item.album.name}</h4>
-  </div>
-  <div class="dflex spacebetween">
-    <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
-    <h4>Release date: ${item.album.release_date}</h4>
-  </div>
-  <div class="commentscontainer">
-  </div>
-  <form id="myForm" action="">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+  <div class="popuplittle">
+    <button class="closepopup">X</button>
+    <img class="width450px" src=${item.album.images[0].url}></img>
+    <h1>${item.name}</h1>
+    <div class="dflex spacebetween">
+      <h4>Artist: ${item.artists[0].name}</h4>
+      <h4>Album: ${item.album.name}</h4>
     </div>
-    <div>
-      <label for="comment">Comment:</label>
-      <input type="text" id="comment" name="comment" required>
+    <div class="dflex spacebetween">
+      <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
+      <h4>Release date: ${item.album.release_date}</h4>
     </div>
-    <button class="postcomment">Comment</button>
-  </form>
+    <h2 class="commentscounter dflex">
+      Comments: 
+    </h2>
+    <div class="commentscontainer">
+    </div>
+    <form id="myForm" action="">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="comment">Comment:</label>
+        <input type="text" id="comment" name="comment" required>
+      </div>
+      <button class="postcomment">Comment</button>
+    </form>
+  </div>
   `;
   document.querySelector('body').appendChild(popup);
 
@@ -843,12 +872,16 @@ const buttonclickcomment = async (item) => {
       commentinput.value = '';
       const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
       (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
+      await (0,_modules_commentscounter_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
     }
   });
 
   // loading comments
   const commentsforthis = await (0,_modules_getcomments_js__WEBPACK_IMPORTED_MODULE_7__["default"])(item.id);
-  (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
+  await (0,_modules_loadcomments_js__WEBPACK_IMPORTED_MODULE_8__["default"])(popup, commentsforthis);
+
+  // counting comments
+  await (0,_modules_commentscounter_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
 };
 
 const render = async () => {

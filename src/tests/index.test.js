@@ -1,8 +1,58 @@
 import songelementcounter from './songelementcounter.js';
+import commentscounter from './commentscounter.js';
 
 const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
+
+// counting comments
+
+describe('commentscounter', () => {
+  test('counting 0 elements', () => {
+    // Arrange
+    const dom = new JSDOM(`
+    <html>
+      <body>
+        <div class="commentscounter"></div>
+      </body>
+    </html>`);
+    global.document = dom.window.document;
+
+    // Act
+    const result = commentscounter();
+
+    // Assert
+    expect(result).toBe(0);
+  });
+
+  test('counting 8 elements', () => {
+    // Arrange
+    const dom = new JSDOM(`
+    <html>
+      <body>
+        <div class="commentscounter">
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+          <div class="commentelement"></div>
+        </div>
+      </body>
+    </html>`);
+    global.document = dom.window.document;
+
+    // Act
+    const result = commentscounter();
+
+    // Assert
+    expect(result).toBe(8);
+  });
+});
+
+// counting items
 
 describe('songelementcounter', () => {
   test('counting 0 elements', () => {
