@@ -1,4 +1,4 @@
-# Group Capstone
+# Solo Capstone
 <a name="readme-top"></a>
 
 <div align="center">
@@ -120,18 +120,6 @@ npm test
 - GitHub: [@EmiLoKiJu](https://github.com/EmiLoKiJu)
 - Twitter: [@GabrielRozas12](https://twitter.com/GabrielRozas12)
 - LinkedIn: [grozas](https://www.linkedin.com/in/grozas/)
-
-👤 **Abiy Hussen Aman**
-
-- GitHub: [@Abiy Github](https://github.com/abiy006)
-- Twitter: [@Abit Twitter](https://twitter.com/Abiy62463489)
-- LinkedIn: [@Abit LinkedIn](https://www.linkedin.com/in/abiy-hussen-aman-194587183/)
-
-<!-- 👤 **Abiy Hussen Aman**
-
-- GitHub: [@Abiy Github](https://github.com/abiy006)
-- Twitter: [@Abit Twitter](https://twitter.com/Abiy62463489)
-- LinkedIn: [@Abit LinkedIn](https://www.linkedin.com/in/abiy-hussen-aman-194587183/) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
