@@ -36,7 +36,7 @@
 
 # 📖 [Group Capstone PROJECT] <a name="about-project"></a>
 
-**[Abiy Capstone One]** This is a Group Capstone project created during Microverse completion of module two. 
+**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything so I had to do it by myself. 
 
 - [Project Description Link](#)
 
@@ -61,7 +61,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Data is send to and from API is configured**
+- **Data is send to and from API**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
