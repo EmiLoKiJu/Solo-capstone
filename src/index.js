@@ -1,5 +1,5 @@
 import './style.css';
-import getToken from './modules/getkey'
+import getToken from './modules/getkey.js';
 import getdata from './modules/getdata.js';
 import likesforthissearch from './modules/likesforthissearch.js';
 import getLikes from './modules/getlikes.js';
@@ -29,12 +29,14 @@ formtolookartist.addEventListener('submit', async (event) => {
     }
     const seemorebutton = document.querySelector('.seemore');
     seemorebutton.remove();
-    await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`)
+    // eslint-disable-next-line no-use-before-define
+    await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
     inputElement.value = '';
   }
 });
 
 const handlenextdata = async (url) => {
+  // eslint-disable-next-line no-use-before-define
   await render(url);
 };
 
