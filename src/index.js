@@ -1,4 +1,5 @@
 import './style.css';
+import getToken from './modules/getkey'
 import getdata from './modules/getdata.js';
 import likesforthissearch from './modules/likesforthissearch.js';
 import getLikes from './modules/getlikes.js';
@@ -10,7 +11,32 @@ import loadcomments from './modules/loadcomments.js';
 import commentscounter from './modules/commentscounter.js';
 
 const musiccontainer = document.querySelector('.musiccontainer');
+const seeMoreButtonContainer = document.querySelector('.seeMoreButtonContainer');
 const countercontainer = document.querySelector('h2');
+const formtolookartist = document.querySelector('form');
+const inputElement = document.querySelector('.textinput');
+
+let artistName = 'Animals as leaders';
+
+formtolookartist.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (inputElement.value.trim() !== '') {
+    artistName = inputElement.value.trim();
+    const songcounter = countercontainer.querySelector('h3');
+    songcounter.remove();
+    while (musiccontainer.firstChild) {
+      musiccontainer.removeChild(musiccontainer.firstChild);
+    }
+    const seemorebutton = document.querySelector('.seemore');
+    seemorebutton.remove();
+    await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`)
+    inputElement.value = '';
+  }
+});
+
+const handlenextdata = async (url) => {
+  await render(url);
+};
 
 const updatelike = async (itemid) => {
   const data = await getdata();
@@ -93,8 +119,9 @@ const buttonclickcomment = async (item) => {
   await commentscounter();
 };
 
-const render = async () => {
-  const data = await getdata();
+const render = async (url) => {
+  const token = await getToken();
+  const data = await getdata(token, url);
   const updatedLikes = await likesforthissearch(data, getLikes());
   for (let i = 0; i < data.tracks.items.length; i += 1) {
     const text = document.createElement('div');
@@ -121,9 +148,21 @@ const render = async () => {
       buttonclickcomment(data.tracks.items[i]);
     });
   }
+  songelementcounter(countercontainer);
+  const divSeeMore = document.createElement('div');
+  divSeeMore.classList.add('seemore');
+  divSeeMore.innerHTML = `
+  <button class="buttonSeeMore">See More</button>`;
+  seeMoreButtonContainer.appendChild(divSeeMore);
+  const buttonSeeMore = divSeeMore.querySelector('.buttonSeeMore');
+  buttonSeeMore.addEventListener('click', () => {
+    handlenextdata(data.tracks.next);
+    const songcounter = countercontainer.querySelector('h3');
+    songcounter.remove();
+    buttonSeeMore.remove();
+  });
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await render();
-  songelementcounter(countercontainer);
+  await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
 });

@@ -4,10 +4,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 header {
-  margin: 16px 0 0 0;
+  width: 40%;
+  justify-content: center;
+  padding-right: 5%;
 }
 
 footer {
@@ -16,6 +19,11 @@ footer {
 
 img {
   object-fit: contain;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
 }
 
 h3 {
@@ -57,8 +65,21 @@ p {
   grid-gap: 10px;
 }
 
+.acenter {
+  align-items: center;
+}
+
+.jcenter {
+  justify-content: center;
+}
+
 .width450px {
   max-width: 450px;
+}
+
+.noDiv {
+  padding: 0;
+  margin: 0;
 }
 
 .songelementcontainer {
@@ -68,6 +89,7 @@ p {
 
 .spotifyicon {
   width: 64px;
+  margin: 0 10%;
 }
 
 .likebutton {
@@ -121,4 +143,17 @@ p {
 
 .likescontainer {
   margin: 16px;
+}
+
+.seeMoreButtonContainer {
+  width: 50%;
+}
+
+.seemore {
+  width: 100%;
+}
+
+.buttonSeeMore {
+  width: 50%;
+  height: 36px;
 }

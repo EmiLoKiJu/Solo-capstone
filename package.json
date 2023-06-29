@@ -37,6 +37,7 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
