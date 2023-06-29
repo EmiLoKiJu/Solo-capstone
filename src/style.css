@@ -63,6 +63,7 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  width: 80%;
 }
 
 .acenter {

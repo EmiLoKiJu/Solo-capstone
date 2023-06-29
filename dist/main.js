@@ -552,34 +552,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 
 
-const client_id = '6d5e99ce50fd43a0838e2fe93563b22b';
-const client_secret = '46e3d2af5bac42b0a737cb0e31263fee';
+const cid = '6d5e99ce50fd43a0838e2fe93563b22b';
+const csecret = '46e3d2af5bac42b0a737cb0e31263fee';
 
-const getToken = async () => {
-  return new Promise((resolve, reject) => {
-    const authOptions = {
-      url: 'https://accounts.spotify.com/api/token',
-      headers: {
-        'Authorization': 'Basic ' + btoa(`${client_id}:${client_secret}`)
-      },
-      form: {
-        grant_type: 'client_credentials'
-      },
-      json: true
-    };
+const getToken = async () => new Promise((resolve, reject) => {
+  const authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    headers: {
+      Authorization: `Basic ${btoa(`${cid}:${csecret}`)}`,
+    },
+    form: {
+      grant_type: 'client_credentials',
+    },
+    json: true,
+  };
 
-    axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(authOptions.url, null, {
-      headers: authOptions.headers,
-      params: authOptions.form
-    })
-      .then(response => {
+  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(authOptions.url, null, {
+    headers: authOptions.headers,
+    params: authOptions.form,
+  })
+    .then((response) => {
       resolve(response.data.access_token);
     })
-      .catch(error => {
+    .catch((error) => {
       reject(error.response.data.error || error);
     });
-  });
-};
+});
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getToken);
 
@@ -4859,7 +4857,7 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-/* harmony import */ var _modules_getkey__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/getkey */ "./src/modules/getkey.js");
+/* harmony import */ var _modules_getkey_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/getkey.js */ "./src/modules/getkey.js");
 /* harmony import */ var _modules_getdata_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/getdata.js */ "./src/modules/getdata.js");
 /* harmony import */ var _modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/likesforthissearch.js */ "./src/modules/likesforthissearch.js");
 /* harmony import */ var _modules_getlikes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/getlikes.js */ "./src/modules/getlikes.js");
@@ -4887,7 +4885,7 @@ const countercontainer = document.querySelector('h2');
 const formtolookartist = document.querySelector('form');
 const inputElement = document.querySelector('.textinput');
 
-let artistName = 'Animals as leaders';
+let artistName = 'Linkin Park';
 
 formtolookartist.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -4900,12 +4898,14 @@ formtolookartist.addEventListener('submit', async (event) => {
     }
     const seemorebutton = document.querySelector('.seemore');
     seemorebutton.remove();
-    await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`)
+    // eslint-disable-next-line no-use-before-define
+    await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
     inputElement.value = '';
   }
 });
 
 const handlenextdata = async (url) => {
+  // eslint-disable-next-line no-use-before-define
   await render(url);
 };
 
@@ -4991,7 +4991,7 @@ const buttonclickcomment = async (item) => {
 };
 
 const render = async (url) => {
-  const token = await (0,_modules_getkey__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  const token = await (0,_modules_getkey_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const data = await (0,_modules_getdata_js__WEBPACK_IMPORTED_MODULE_2__["default"])(token, url);
   const updatedLikes = await (0,_modules_likesforthissearch_js__WEBPACK_IMPORTED_MODULE_3__["default"])(data, (0,_modules_getlikes_js__WEBPACK_IMPORTED_MODULE_4__["default"])());
   for (let i = 0; i < data.tracks.items.length; i += 1) {
@@ -5030,7 +5030,7 @@ const render = async (url) => {
     handlenextdata(data.tracks.next);
     const songcounter = countercontainer.querySelector('h3');
     songcounter.remove();
-    buttonSeeMore.remove();
+    divSeeMore.remove();
   });
 };
 
