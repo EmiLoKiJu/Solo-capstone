@@ -5,7 +5,7 @@
   <img src="./spotify.svg" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Group Capstone</b></h3>
+  <h3><b>Solo Capstone</b></h3>
 
 </div>
 
@@ -36,7 +36,7 @@
 
 # 📖 [Group Capstone PROJECT] <a name="about-project"></a>
 
-**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything so I had to do it by myself. 
+**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything until Thursday, and what he did was not working well, so I had to take out his code and do it by myself to pass the week. 
 
 - [Project Description Link](#)
 
