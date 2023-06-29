@@ -36,7 +36,7 @@
 
 # 📖 [Group Capstone PROJECT] <a name="about-project"></a>
 
-**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything until Thursday, and what he did was not working well, so I had to take out his code and do it by myself to pass the week. 
+**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything until Thursday, and what he did in 2 days was not working well, so I had to take out his code and do it by myself to pass the week. 
 
 - [Project Description Link](#)
 
@@ -52,16 +52,20 @@
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/Javascript">Javascript</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/Javascript">Webpack</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/Javascript">Jest</a></li>
-    <li><a href="https://dart.dev/tools/linter-rules">LINTERS</a></li>
+    <li><a href="https://axios-http.com/docs/intro">Axios</a></li>
   </ul>
 </details>
 
-<!-- Features -->
+
+### Live Demo <a name="live-demo"></a>
+
+Deployed by render.com: [live demo link](https://artistoverall.onrender.com/)
 
 
 ### Key Features <a name="key-features"></a>
 
 - **Data is send to and from API**
+- **You can listen to a preview of your favourites artists**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,11 +73,6 @@
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-### Video presentation <a name="video-presentation"></a>
-
-Feel free to look our video:
-https://drive.google.com/file/d/1tPfgJY3qLMt5_5EtmInSsrsirBWmoL5N/view?usp=sharing
 
 ### Prerequisites
 

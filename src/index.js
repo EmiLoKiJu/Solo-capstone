@@ -16,7 +16,7 @@ const countercontainer = document.querySelector('h2');
 const formtolookartist = document.querySelector('form');
 const inputElement = document.querySelector('.textinput');
 
-let artistName = 'Animals as leaders';
+let artistName = 'Linkin Park';
 
 formtolookartist.addEventListener('submit', async (event) => {
   event.preventDefault();
