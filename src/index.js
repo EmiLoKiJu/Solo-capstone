@@ -161,7 +161,7 @@ const render = async (url) => {
     handlenextdata(data.tracks.next);
     const songcounter = countercontainer.querySelector('h3');
     songcounter.remove();
-    buttonSeeMore.remove();
+    divSeeMore.remove();
   });
 };
 
