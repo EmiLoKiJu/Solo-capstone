@@ -36,7 +36,7 @@
 
 # 📖 [Group Capstone PROJECT] <a name="about-project"></a>
 
-**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything until Thursday, and what he did in 2 days was not working well, so I had to take out his code and do it by myself to pass the week. 
+**[Solo Capstone]** This was supposed to be a Group Capstone project created during Microverse completion of module two, but my partner didn't do anything so I had to do it by myself to pass the week. 
 
 - [Project Description Link](#)
 
