@@ -10,13 +10,14 @@ const getToken = async () => {
       'grant_type=client_credentials', // URL-encoded form data
       {
         headers: {
-          'Authorization': `Basic ${btoa(`${cid}:${csecret}`)}`,
+          Authorization: `Basic ${btoa(`${cid}:${csecret}`)}`,
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-      }
+      },
     );
     return response.data.access_token;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Token retrieval failed:', error.response?.data || error.message);
     throw new Error('Failed to get Spotify token');
   }

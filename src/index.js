@@ -15,6 +15,126 @@ const countercontainer = document.querySelector('h2');
 const formtolookartist = document.querySelector('form');
 const inputElement = document.querySelector('.textinput');
 
+// Function declarations to avoid 'used before defined' errors
+const render = async (url) => {
+  // Clear existing loading indicators before adding a new one
+  const existingLoaders = document.querySelectorAll('.loading-indicator');
+  existingLoaders.forEach((loader) => {
+    if (loader.parentNode) {
+      loader.parentNode.removeChild(loader);
+    }
+  });
+  
+  // Show loading state
+  const loadingIndicator = createLoadingIndicator();
+  musiccontainer.appendChild(loadingIndicator);
+  
+  try {
+    const token = await getToken();
+    const data = await getdata(token, url);
+    
+    // Remove loading indicator once data is fetched
+    if (loadingIndicator.parentNode) {
+      loadingIndicator.parentNode.removeChild(loadingIndicator);
+    }
+    
+    // Check if there are results
+    if (data.tracks.items.length === 0) {
+      const noResults = document.createElement('div');
+      noResults.classList.add('no-results');
+      noResults.innerHTML = `<p>No songs found for "${artistName}". Try another search.</p>`;
+      musiccontainer.appendChild(noResults);
+      return;
+    }
+    
+    for (let i = 0; i < data.tracks.items.length; i += 1) {
+      const previewUrl = data.tracks.items[i].preview_url;
+      const spotifyUrl = data.tracks.items[i].external_urls.spotify;
+      const albumImages = data.tracks.items[i].album.images;
+      const imageUrl = albumImages && albumImages.length > 1 
+        ? albumImages[1].url 
+        : (albumImages && albumImages.length > 0 ? albumImages[0].url : '');
+      
+      const text = document.createElement('div');
+      text.classList.add('songelementcontainer', 'dflex', 'flexcol');
+      
+      // Add animation delay based on index
+      text.style.animationDelay = `${i * 0.1}s`;
+      
+      text.innerHTML = `
+      <p class="song-title">${data.tracks.items[i].name}</p>
+      <p class="song-artist">${data.tracks.items[i].artists[0].name}</p>
+      ${previewUrl 
+        ? `<audio controls>
+          <source src="${previewUrl}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>` 
+        : `<p class="no-preview">Preview not available - <a href="${spotifyUrl}" target="_blank">Listen on Spotify</a></p>`
+      }
+      ${imageUrl ? `<img src="${imageUrl}" alt="${data.tracks.items[i].name} album cover"></img>` : '<p>No image available</p>'}
+      <button class="details-button">View Details</button>`;
+      
+      musiccontainer.appendChild(text);
+      
+      // Add fade-in animation class after element is added to DOM
+      setTimeout(() => {
+        text.classList.add('song-element-visible');
+      }, 10);
+      
+      const detailsButton = text.querySelector('.details-button');
+      detailsButton.addEventListener('click', () => {
+        showTrackDetails(data.tracks.items[i]);
+      });
+    }
+    
+    songelementcounter(countercontainer);
+    
+    // Only show See More button if there's a next page
+    if (data.tracks.next) {
+      const divSeeMore = document.createElement('div');
+      divSeeMore.classList.add('seemore');
+      divSeeMore.innerHTML = `
+      <button class="buttonSeeMore">See More Songs</button>`;
+      seeMoreButtonContainer.appendChild(divSeeMore);
+      
+      const buttonSeeMore = divSeeMore.querySelector('.buttonSeeMore');
+      buttonSeeMore.addEventListener('click', () => {
+        // Show loading state
+        buttonSeeMore.disabled = true;
+        buttonSeeMore.innerHTML = '<span class="loading-spinner"></span> Loading more songs...';
+        buttonSeeMore.style.width = `${buttonSeeMore.offsetWidth}px`; // Prevent button width from changing
+        
+        handlenextdata(data.tracks.next);
+        const songcounter = countercontainer.querySelector('h3');
+        if (songcounter) songcounter.remove();
+        divSeeMore.remove();
+      });
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error rendering data:', error);
+    
+    // Remove loading indicator if it exists
+    if (loadingIndicator.parentNode) {
+      loadingIndicator.parentNode.removeChild(loadingIndicator);
+    }
+    
+    // Show error message
+    const errorMessage = document.createElement('div');
+    errorMessage.classList.add('error-message');
+    errorMessage.innerHTML = '<p>Failed to load songs. Please try again later.</p>'
+                           + '<button class="retry-button">Retry</button>';
+    musiccontainer.appendChild(errorMessage);
+    
+    // Add retry functionality
+    const retryButton = errorMessage.querySelector('.retry-button');
+    retryButton.addEventListener('click', () => {
+      errorMessage.remove();
+      render(url);
+    });
+  }
+};
+
 // Add loading indicator
 const createLoadingIndicator = () => {
   const loader = document.createElement('div');
@@ -44,7 +164,7 @@ formtolookartist.addEventListener('submit', async (event) => {
     
     // Clear existing loading indicators before adding a new one
     const existingLoaders = document.querySelectorAll('.loading-indicator');
-    existingLoaders.forEach(loader => {
+    existingLoaders.forEach((loader) => {
       if (loader.parentNode) {
         loader.parentNode.removeChild(loader);
       }
@@ -65,8 +185,9 @@ formtolookartist.addEventListener('submit', async (event) => {
     try {
       await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Error fetching data:', error);
-      musiccontainer.innerHTML = `<div class="error-message">Failed to load songs. Please try again.</div>`;
+      musiccontainer.innerHTML = '<div class="error-message">Failed to load songs. Please try again.</div>';
     } finally {
       // Remove loading indicator
       if (musiccontainer.contains(loader)) {
@@ -139,129 +260,13 @@ const showTrackDetails = async (item) => {
   });
 };
 
-const render = async (url) => {
-  // Clear existing loading indicators before adding a new one
-  const existingLoaders = document.querySelectorAll('.loading-indicator');
-  existingLoaders.forEach(loader => {
-    if (loader.parentNode) {
-      loader.parentNode.removeChild(loader);
-    }
-  });
-  
-  // Show loading state
-  const loadingIndicator = createLoadingIndicator();
-  musiccontainer.appendChild(loadingIndicator);
-  
-  try {
-    const token = await getToken();
-    const data = await getdata(token, url);
-    
-    // Remove loading indicator once data is fetched
-    if (loadingIndicator.parentNode) {
-      loadingIndicator.parentNode.removeChild(loadingIndicator);
-    }
-    
-    // Check if there are results
-    if (data.tracks.items.length === 0) {
-      const noResults = document.createElement('div');
-      noResults.classList.add('no-results');
-      noResults.innerHTML = `<p>No songs found for "${artistName}". Try another search.</p>`;
-      musiccontainer.appendChild(noResults);
-      return;
-    }
-    
-    for (let i = 0; i < data.tracks.items.length; i += 1) {
-      const previewUrl = data.tracks.items[i].preview_url;
-      const spotifyUrl = data.tracks.items[i].external_urls.spotify;
-      const albumImages = data.tracks.items[i].album.images;
-      const imageUrl = albumImages && albumImages.length > 1 ? albumImages[1].url : 
-                      (albumImages && albumImages.length > 0 ? albumImages[0].url : '');
-      
-      const text = document.createElement('div');
-      text.classList.add('songelementcontainer', 'dflex', 'flexcol');
-      
-      // Add animation delay based on index
-      text.style.animationDelay = `${i * 0.1}s`;
-      
-      text.innerHTML = `
-      <p class="song-title">${data.tracks.items[i].name}</p>
-      <p class="song-artist">${data.tracks.items[i].artists[0].name}</p>
-      ${previewUrl ? 
-        `<audio controls>
-          <source src="${previewUrl}" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>` : 
-        `<p class="no-preview">Preview not available - <a href="${spotifyUrl}" target="_blank">Listen on Spotify</a></p>`
-      }
-      ${imageUrl ? `<img src="${imageUrl}" alt="${data.tracks.items[i].name} album cover"></img>` : '<p>No image available</p>'}
-      <button class="details-button">View Details</button>`;
-      
-      musiccontainer.appendChild(text);
-      
-      // Add fade-in animation class after element is added to DOM
-      setTimeout(() => {
-        text.classList.add('song-element-visible');
-      }, 10);
-      
-      const detailsButton = text.querySelector('.details-button');
-      detailsButton.addEventListener('click', () => {
-        showTrackDetails(data.tracks.items[i]);
-      });
-    }
-    
-    songelementcounter(countercontainer);
-    
-    // Only show See More button if there's a next page
-    if (data.tracks.next) {
-      const divSeeMore = document.createElement('div');
-      divSeeMore.classList.add('seemore');
-      divSeeMore.innerHTML = `
-      <button class="buttonSeeMore">See More Songs</button>`;
-      seeMoreButtonContainer.appendChild(divSeeMore);
-      
-      const buttonSeeMore = divSeeMore.querySelector('.buttonSeeMore');
-      buttonSeeMore.addEventListener('click', () => {
-        // Show loading state
-        buttonSeeMore.disabled = true;
-        buttonSeeMore.innerHTML = '<span class="loading-spinner"></span> Loading more songs...';
-        buttonSeeMore.style.width = buttonSeeMore.offsetWidth + 'px'; // Prevent button width from changing
-        
-        handlenextdata(data.tracks.next);
-        const songcounter = countercontainer.querySelector('h3');
-        if (songcounter) songcounter.remove();
-        divSeeMore.remove();
-      });
-    }
-  } catch (error) {
-    console.error('Error rendering data:', error);
-    
-    // Remove loading indicator if it exists
-    if (loadingIndicator.parentNode) {
-      loadingIndicator.parentNode.removeChild(loadingIndicator);
-    }
-    
-    // Show error message
-    const errorMessage = document.createElement('div');
-    errorMessage.classList.add('error-message');
-    errorMessage.innerHTML = `<p>Failed to load songs. Please try again later.</p>
-                             <button class="retry-button">Retry</button>`;
-    musiccontainer.appendChild(errorMessage);
-    
-    // Add retry functionality
-    const retryButton = errorMessage.querySelector('.retry-button');
-    retryButton.addEventListener('click', () => {
-      errorMessage.remove();
-      render(url);
-    });
-  }
-};
-
 // Add a function to check if the Spotify API token is valid
 const checkApiConnection = async () => {
   try {
     await getToken();
     return true;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('API connection check failed:', error);
     return false;
   }

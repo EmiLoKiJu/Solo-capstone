@@ -2,7 +2,7 @@ const getdata = async (token, url) => {
   try {
     const response = await fetch(url, {
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     });
@@ -14,6 +14,7 @@ const getdata = async (token, url) => {
     const data = await response.json();
     return data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Data fetch failed:', error.message);
     throw error;
   }
