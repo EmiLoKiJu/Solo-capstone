@@ -27,11 +27,34 @@ body {
   transition: background-color var(--transition-speed);
 }
 
+audio {
+  width: 100%;
+  margin: 15px 0;
+}
+
+footer {
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+  color: #666;
+}
+
+header,
 .app-header {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  animation: fadeInStagger 0.5s forwards;
+}
+
+.app-header {
   animation: fadeIn 0.8s;
 }
 
@@ -43,31 +66,10 @@ body {
 }
 
 .spotify-logo {
-  height: 30px; /* Reduced from 40px */
+  height: 30px;
   width: auto;
   margin-right: 15px;
   animation: fadeInRight 0.8s;
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-header {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 form {
@@ -77,6 +79,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  animation: fadeInStagger 0.5s forwards 0.1s;
 }
 
 .textinput {
@@ -87,12 +90,16 @@ form {
   font-size: 16px;
   transition: all var(--transition-speed);
   outline: none;
-  margin-bottom: 15px; /* Add bottom margin for vertical spacing */
+  margin-bottom: 15px;
 }
 
 .textinput:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 8px rgba(29, 185, 84, 0.5);
+}
+
+button {
+  position: relative;
 }
 
 form button {
@@ -101,9 +108,14 @@ form button {
   color: white;
   border: none;
   border-radius: 25px;
-  margin-left: 10px; /* Restore original left margin */
+  margin-left: 10px;
   cursor: pointer;
   transition: all var(--transition-speed);
+}
+
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 form button:hover {
@@ -120,36 +132,11 @@ form button:hover {
   margin: 0 auto;
 }
 
-/* Basic elements */
-a {
-  transition: all 0.2s;
-}
-
-a:hover {
-  color: var(--primary-color);
-}
-
-a:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-button {
-  position: relative;
-  transition: all 0.2s;
-}
-
-button:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
 .songelementcontainer {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
   box-shadow: var(--card-shadow);
-  height: auto;
   min-height: 400px;
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
   display: flex;
@@ -182,9 +169,23 @@ button:focus {
   object-fit: cover;
 }
 
-audio {
-  width: 100%;
-  margin: 15px 0;
+.song-element-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.song-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+}
+
+.song-artist {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: normal;
 }
 
 .no-preview {
@@ -193,10 +194,23 @@ audio {
   margin: 15px 0;
 }
 
+a {
+  transition: all 0.2s;
+}
+
+a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
 .no-preview a {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: bold;
+}
+
+a:hover {
+  color: var(--primary-color);
 }
 
 .no-preview a:hover {
@@ -211,7 +225,6 @@ audio {
   width: 100%;
 }
 
-/* Replace like/comment button with details button */
 .details-button {
   background-color: var(--primary-color);
   color: white;
@@ -230,26 +243,6 @@ audio {
   transform: scale(1.05);
 }
 
-/* Remove like/comment related styles */
-/* These styles can be completely removed:
-.likescontainer,
-.likes,
-.likebutton,
-.commentbutton,
-.like-button-active,
-.like-icon,
-.like-updated,
-.commentscounter,
-.commentscontainer,
-.overflowauto,
-.commentelement,
-#myForm,
-.postcomment {
-  display: none;
-}
-*/
-
-/* Add track details styles */
 .track-details {
   background-color: rgba(29, 185, 84, 0.1);
   border-radius: 8px;
@@ -280,63 +273,94 @@ audio {
   margin-top: 5px;
 }
 
-/* Update popup styles */
-.popuplittle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.popuplittle h1 {
-  margin: 15px 0;
-  font-size: 28px;
-  color: var(--secondary-color);
-}
-
-.popuplittle .dflex.spacebetween {
+.popupwindow {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity var(--transition-speed);
 }
 
-/* Dark theme updates */
-body.dark-theme .track-details {
-  background-color: rgba(29, 185, 84, 0.2);
+.popuplittle {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 90%;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform var(--transition-speed);
 }
 
-body.dark-theme .track-details h3 {
-  color: #1ed760;
+.popup-active {
+  opacity: 1;
 }
 
-body.dark-theme .popuplittle h1 {
-  color: #e0e0e0;
+.popup-active .popuplittle {
+  transform: scale(1);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .details-button {
-    width: 100%;
-  }
-  
-  .track-details {
-    padding: 12px;
-  }
+.popup-closing {
+  opacity: 0;
+  animation: fadeOut 0.3s forwards;
 }
 
-@media (max-width: 480px) {
-  .details-button {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
-  
-  .track-details h3 {
-    font-size: 18px;
-  }
-  
-  .track-details p {
-    font-size: 14px;
-  }
+.popup-closing .popuplittle {
+  transform: scale(0.9);
+}
+
+.closepopup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all var(--transition-speed);
+}
+
+.closepopup:hover {
+  background-color: #333;
+  transform: scale(1.1);
+}
+
+.width450px {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+body.dark-theme {
+  --light-bg: #121212;
+  --text-color: #e0e0e0;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  color: var(--text-color);
+}
+
+body.dark-theme .popuplittle {
+  background-color: #282828;
+  color: var(--text-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .buttonSeeMore {
@@ -364,6 +388,10 @@ body.dark-theme .popuplittle h1 {
   transform: translateY(-1px);
 }
 
+body.dark-theme .buttonSeeMore {
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.5);
+}
+
 .seemore {
   display: flex;
   justify-content: center;
@@ -377,11 +405,6 @@ body.dark-theme .popuplittle h1 {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-}
-
-/* Dark theme adjustments for the button */
-body.dark-theme .buttonSeeMore {
-  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.5);
 }
 
 .postcomment {
@@ -400,14 +423,6 @@ body.dark-theme .buttonSeeMore {
   transform: translateY(-2px);
 }
 
-footer {
-  margin: 40px 0;
-  width: 100%;
-  text-align: center;
-  color: #666;
-}
-
-/* Loading animations */
 .loading-indicator {
   display: flex;
   flex-direction: column;
@@ -428,10 +443,6 @@ footer {
   margin-bottom: 15px;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 .loading-spinner {
   display: inline-block;
   width: 20px;
@@ -444,42 +455,18 @@ footer {
   vertical-align: middle;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.song-element-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Like button animation */
 .like-button-active {
   animation: pulse 0.5s;
 }
 
-/* Popup animations */
-.popup-active {
-  opacity: 1;
+.likes {
+  transition: all 0.3s;
 }
 
-.popup-closing {
-  animation: fadeOut 0.3s forwards;
+.like-updated {
+  animation: highlight 1s;
 }
 
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* Error and notification styles */
 .error-message {
   background-color: #fdd;
   color: #d8000c;
@@ -516,22 +503,11 @@ footer {
   animation: fadeIn 0.5s;
 }
 
-/* Song details */
-.song-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: var(--secondary-color);
+body.dark-theme .no-results {
+  background-color: #282828;
+  color: var(--text-color);
 }
 
-.song-artist {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 15px;
-  font-weight: normal;
-}
-
-/* Comment textarea */
 #comment {
   width: 100%;
   padding: 10px;
@@ -543,7 +519,12 @@ footer {
   min-height: 80px;
 }
 
-/* Dark mode toggle */
+body.dark-theme #comment {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
 .theme-toggle {
   position: fixed;
   bottom: 20px;
@@ -567,105 +548,6 @@ footer {
   transform: rotate(30deg);
 }
 
-/* Dark theme */
-body.dark-theme {
-  --light-bg: #121212;
-  --text-color: #e0e0e0;
-  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  color: var(--text-color);
-}
-
-body.dark-theme .songelementcontainer,
-body.dark-theme .popuplittle,
-body.dark-theme .no-results {
-  background-color: #282828;
-  color: var(--text-color);
-}
-
-body.dark-theme .songelementcontainer p,
-body.dark-theme .song-title {
-  color: #e0e0e0;
-}
-
-body.dark-theme .song-artist {
-  color: #aaa;
-}
-
-body.dark-theme #myForm label {
-  color: #e0e0e0;
-}
-
-body.dark-theme #myForm input,
-body.dark-theme #comment {
-  background-color: #333;
-  color: #e0e0e0;
-  border-color: #555;
-}
-
-body.dark-theme .overflowauto {
-  border-color: #555;
-  background-color: #333;
-}
-
-body.dark-theme .commentelement {
-  border-bottom-color: #444;
-  color: #e0e0e0;
-}
-
-/* Additional responsive adjustments */
-@media (max-width: 768px) {
-  .dflex.spacebetween {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .dflex.spacebetween h4 {
-    margin-bottom: 10px;
-  }
-  
-  .closepopup {
-    top: 10px;
-    right: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .songelementcontainer {
-    padding: 15px;
-  }
-  
-  .songelementcontainer p {
-    font-size: 16px;
-  }
-  
-  .likebutton,
-  .commentbutton {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
-  
-  .commentscounter {
-    font-size: 20px;
-  }
-  
-  .theme-toggle {
-    width: 40px;
-    height: 40px;
-    bottom: 15px;
-    right: 15px;
-  }
-}
-
-/* Accessibility improvements */
-button, a {
-  position: relative;
-}
-
-button:focus, a:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
 .skip-link {
   position: absolute;
   top: -40px;
@@ -681,35 +563,112 @@ button:focus, a:focus {
   top: 0;
 }
 
-/* Animations for page load */
+h2 {
+  animation: fadeInStagger 0.5s forwards;
+  animation-delay: 0.2s;
+}
+
+/* Dark theme styles */
+body.dark-theme .songelementcontainer {
+  background-color: #282828;
+  color: var(--text-color);
+}
+
+body.dark-theme .songelementcontainer p {
+  color: #e0e0e0;
+}
+
+body.dark-theme .song-title {
+  color: #e0e0e0;
+}
+
+body.dark-theme .song-artist {
+  color: #aaa;
+}
+
+body.dark-theme .track-details {
+  background-color: rgba(29, 185, 84, 0.2);
+}
+
+body.dark-theme .track-details h3 {
+  color: #1ed760;
+}
+
+body.dark-theme .popuplittle h1 {
+  color: #e0e0e0;
+}
+
+body.dark-theme #myForm label {
+  color: #e0e0e0;
+}
+
+body.dark-theme #myForm input {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark-theme .overflowauto {
+  border-color: #555;
+  background-color: #333;
+}
+
+body.dark-theme .commentelement {
+  border-bottom-color: #444;
+  color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .details-button {
+    width: 100%;
+  }
+
+  .track-details {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .track-details h3 {
+    font-size: 18px;
+  }
+
+  .track-details p {
+    font-size: 14px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+  }
+
+  100% {
+    background-color: var(--secondary-color);
+    transform: scale(1);
+  }
+}
+
 @keyframes fadeInStagger {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-header, form, h2 {
-  animation: fadeInStagger 0.5s forwards;
-}
-
-form {
-  animation-delay: 0.1s;
-}
-
-h2 {
-  animation-delay: 0.2s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }

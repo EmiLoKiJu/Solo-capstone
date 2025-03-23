@@ -3,348 +3,175 @@ import getToken from './modules/getkey.js';
 import getdata from './modules/getdata.js';
 import songelementcounter from './modules/songelementcounter.js';
 
-// Add a link to Google Fonts for Montserrat
-const fontLink = document.createElement('link');
-fontLink.rel = 'stylesheet';
-fontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap';
-document.head.appendChild(fontLink);
+// Constants
+const SPOTIFY_LOGO_URL = 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png';
+const DEFAULT_ARTIST = 'Linkin Park';
 
-const musiccontainer = document.querySelector('.musiccontainer');
+// DOM Elements
+const musicContainer = document.querySelector('.musiccontainer');
 const seeMoreButtonContainer = document.querySelector('.seeMoreButtonContainer');
-const countercontainer = document.querySelector('h2');
-const formtolookartist = document.querySelector('form');
+const counterContainer = document.querySelector('h2');
+const form = document.querySelector('form');
 const inputElement = document.querySelector('.textinput');
 
-// Function declarations to avoid 'used before defined' errors
-const render = async (url) => {
-  // Clear existing loading indicators before adding a new one
-  const existingLoaders = document.querySelectorAll('.loading-indicator');
-  existingLoaders.forEach((loader) => {
-    if (loader.parentNode) {
-      loader.parentNode.removeChild(loader);
-    }
-  });
-  
-  // Show loading state
-  const loadingIndicator = createLoadingIndicator();
-  musiccontainer.appendChild(loadingIndicator);
-  
+// Global Variables
+let artistName = DEFAULT_ARTIST;
+
+// Utility Functions
+const createElement = (tag, classList = [], innerHTML = '', attributes = {}) => {
+  const element = document.createElement(tag);
+  if (classList.length) element.classList.add(...classList);
+  element.innerHTML = innerHTML;
+  Object.keys(attributes).forEach((key) => element.setAttribute(key, attributes[key]));
+  return element;
+};
+
+const createLoadingIndicator = () => createElement('div', ['loading-indicator'], `
+  <div class="spinner"></div>
+  <p>Loading songs...</p>
+`);
+
+const removeElement = (element) => element?.parentNode?.removeChild(element);
+
+// Popup Functionality
+const showTrackDetails = (item) => {
+  const popup = createElement('div', ['popupwindow'], `
+    <div class="popuplittle">
+      <button class="closepopup">X</button>
+      ${item.album.images?.[0]?.url ? `<img class="width450px" src="${item.album.images[0].url}" alt="${item.name} album cover">` : '<p>No image available</p>'}
+      <h1>${item.name}</h1>
+      <div class="dflex spacebetween">
+        <h4>Artist: ${item.artists[0].name}</h4>
+        <h4>Album: ${item.album.name}</h4>
+      </div>
+      <div class="dflex spacebetween">
+        <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
+        <h4>Release date: ${item.album.release_date}</h4>
+      </div>
+      <div class="track-details">
+        <h3>Track Details</h3>
+        <p>Duration: ${Math.floor(item.duration_ms / 60000)}:${(((item.duration_ms % 60000) / 1000).toFixed(0)).padStart(2, '0')}</p>
+        <p>Popularity: ${item.popularity}/100</p>
+        ${item.explicit ? '<p class="explicit-tag">Explicit</p>' : ''}
+      </div>
+    </div>
+  `);
+
+  document.body.appendChild(popup);
+  requestAnimationFrame(() => popup.classList.add('popup-active'));
+
+  const closePopup = () => {
+    popup.classList.add('popup-closing');
+    setTimeout(() => removeElement(popup), 300);
+  };
+
+  popup.querySelector('.closepopup').addEventListener('click', closePopup);
+  popup.addEventListener('click', (e) => e.target === popup && closePopup());
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && closePopup(), { once: true });
+};
+
+// Rendering Logic
+const renderTracks = async (url) => {
+  const loader = createLoadingIndicator();
+  musicContainer.appendChild(loader);
+
   try {
     const token = await getToken();
-    const data = await getdata(token, url);
-    
-    // Remove loading indicator once data is fetched
-    if (loadingIndicator.parentNode) {
-      loadingIndicator.parentNode.removeChild(loadingIndicator);
-    }
-    
-    // Check if there are results
-    if (data.tracks.items.length === 0) {
-      const noResults = document.createElement('div');
-      noResults.classList.add('no-results');
-      noResults.innerHTML = `<p>No songs found for "${artistName}". Try another search.</p>`;
-      musiccontainer.appendChild(noResults);
+    const { tracks } = await getdata(token, url);
+
+    removeElement(loader);
+
+    if (!tracks.items.length) {
+      musicContainer.appendChild(createElement('div', ['no-results'], `<p>No songs found for "${artistName}". Try another search.</p>`));
       return;
     }
-    
-    for (let i = 0; i < data.tracks.items.length; i += 1) {
-      const previewUrl = data.tracks.items[i].preview_url;
-      const spotifyUrl = data.tracks.items[i].external_urls.spotify;
-      const albumImages = data.tracks.items[i].album.images;
-      const imageUrl = albumImages && albumImages.length > 1 
-        ? albumImages[1].url 
-        : (albumImages && albumImages.length > 0 ? albumImages[0].url : '');
-      
-      const text = document.createElement('div');
-      text.classList.add('songelementcontainer', 'dflex', 'flexcol');
-      
-      // Add animation delay based on index
-      text.style.animationDelay = `${i * 0.1}s`;
-      
-      text.innerHTML = `
-      <p class="song-title">${data.tracks.items[i].name}</p>
-      <p class="song-artist">${data.tracks.items[i].artists[0].name}</p>
-      ${previewUrl 
-        ? `<audio controls>
-          <source src="${previewUrl}" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>` 
-        : `<p class="no-preview">Preview not available - <a href="${spotifyUrl}" target="_blank">Listen on Spotify</a></p>`
-      }
-      ${imageUrl ? `<img src="${imageUrl}" alt="${data.tracks.items[i].name} album cover"></img>` : '<p>No image available</p>'}
-      <button class="details-button">View Details</button>`;
-      
-      musiccontainer.appendChild(text);
-      
-      // Add fade-in animation class after element is added to DOM
-      setTimeout(() => {
-        text.classList.add('song-element-visible');
-      }, 10);
-      
-      const detailsButton = text.querySelector('.details-button');
-      detailsButton.addEventListener('click', () => {
-        showTrackDetails(data.tracks.items[i]);
-      });
-    }
-    
-    songelementcounter(countercontainer);
-    
-    // Only show See More button if there's a next page
-    if (data.tracks.next) {
-      const divSeeMore = document.createElement('div');
-      divSeeMore.classList.add('seemore');
-      divSeeMore.innerHTML = `
-      <button class="buttonSeeMore">See More Songs</button>`;
-      seeMoreButtonContainer.appendChild(divSeeMore);
-      
-      const buttonSeeMore = divSeeMore.querySelector('.buttonSeeMore');
-      buttonSeeMore.addEventListener('click', () => {
-        // Show loading state
-        buttonSeeMore.disabled = true;
-        buttonSeeMore.innerHTML = '<span class="loading-spinner"></span> Loading more songs...';
-        buttonSeeMore.style.width = `${buttonSeeMore.offsetWidth}px`; // Prevent button width from changing
-        
-        handlenextdata(data.tracks.next);
-        const songcounter = countercontainer.querySelector('h3');
-        if (songcounter) songcounter.remove();
-        divSeeMore.remove();
+
+    tracks.items.forEach((track, index) => {
+      const imageUrl = track.album.images?.[1]?.url || track.album.images?.[0]?.url || '';
+      const songElement = createElement('div', ['songelementcontainer'], `
+        <p class="song-title">${track.name}</p>
+        <p class="song-artist">${track.artists[0].name}</p>
+        ${track.preview_url
+    ? `<audio controls><source src="${track.preview_url}" type="audio/mpeg">Your browser does not support the audio element.</audio>`
+    : `<p class="no-preview">Preview not available - <a href="${track.external_urls.spotify}" target="_blank">Listen on Spotify</a></p>`}
+        ${imageUrl ? `<img src="${imageUrl}" alt="${track.name} album cover">` : '<p>No image available</p>'}
+        <button class="details-button">View Details</button>
+      `);
+
+      songElement.style.animationDelay = `${index * 0.1}s`;
+      musicContainer.appendChild(songElement);
+      requestAnimationFrame(() => songElement.classList.add('song-element-visible'));
+
+      songElement.querySelector('.details-button').addEventListener('click', () => showTrackDetails(track));
+    });
+
+    songelementcounter(counterContainer);
+
+    if (tracks.next) {
+      const seeMore = createElement('div', ['seemore'], '<button class="buttonSeeMore">See More Songs</button>');
+      seeMoreButtonContainer.appendChild(seeMore);
+      seeMore.querySelector('.buttonSeeMore').addEventListener('click', async () => {
+        seeMore.remove();
+        await renderTracks(tracks.next);
       });
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error rendering data:', error);
-    
-    // Remove loading indicator if it exists
-    if (loadingIndicator.parentNode) {
-      loadingIndicator.parentNode.removeChild(loadingIndicator);
-    }
-    
-    // Show error message
-    const errorMessage = document.createElement('div');
-    errorMessage.classList.add('error-message');
-    errorMessage.innerHTML = '<p>Failed to load songs. Please try again later.</p>'
-                           + '<button class="retry-button">Retry</button>';
-    musiccontainer.appendChild(errorMessage);
-    
-    // Add retry functionality
-    const retryButton = errorMessage.querySelector('.retry-button');
-    retryButton.addEventListener('click', () => {
-      errorMessage.remove();
-      render(url);
-    });
+    removeElement(loader);
+    musicContainer.appendChild(createElement('div', ['error-message'], `
+      <p>Error rendering tracks: ${error.message}. Please try again later.</p>
+      <button class="retry-button">Retry</button>
+    `));
+    musicContainer.querySelector('.retry-button').addEventListener('click', () => renderTracks(url));
   }
 };
 
-// Add loading indicator
-const createLoadingIndicator = () => {
-  const loader = document.createElement('div');
-  loader.classList.add('loading-indicator');
-  loader.innerHTML = '<div class="spinner"></div><p>Loading songs...</p>';
-  return loader;
-};
+// Event Listeners
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const newArtist = inputElement.value.trim();
+  if (!newArtist) return;
 
-let artistName = 'Linkin Park';
-
-// Remove this section that adds a button
-// if (!document.querySelector('.search-button')) {
-//   const searchButton = document.createElement('button');
-//   searchButton.textContent = 'Search';
-//   searchButton.classList.add('search-button');
-//   formtolookartist.appendChild(searchButton);
-// }
-
-formtolookartist.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  if (inputElement.value.trim() !== '') {
-    artistName = inputElement.value.trim();
-    
-    // Remove existing content
-    const songcounter = countercontainer.querySelector('h3');
-    if (songcounter) songcounter.remove();
-    
-    // Clear existing loading indicators before adding a new one
-    const existingLoaders = document.querySelectorAll('.loading-indicator');
-    existingLoaders.forEach((loader) => {
-      if (loader.parentNode) {
-        loader.parentNode.removeChild(loader);
-      }
-    });
-    
-    while (musiccontainer.firstChild) {
-      musiccontainer.removeChild(musiccontainer.firstChild);
-    }
-    
-    const seemorebutton = document.querySelector('.seemore');
-    if (seemorebutton) seemorebutton.remove();
-    
-    // Show loading indicator
-    const loader = createLoadingIndicator();
-    musiccontainer.appendChild(loader);
-    
-    // Fetch new data
-    try {
-      await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error fetching data:', error);
-      musiccontainer.innerHTML = '<div class="error-message">Failed to load songs. Please try again.</div>';
-    } finally {
-      // Remove loading indicator
-      if (musiccontainer.contains(loader)) {
-        musiccontainer.removeChild(loader);
-      }
-    }
-    
-    inputElement.value = '';
-  }
+  artistName = newArtist;
+  musicContainer.innerHTML = '';
+  seeMoreButtonContainer.innerHTML = '';
+  counterContainer.querySelector('h3')?.remove();
+  await renderTracks(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
+  inputElement.value = '';
 });
 
-const handlenextdata = async (url) => {
-  // Show loading indicator
-  const loader = createLoadingIndicator();
-  seeMoreButtonContainer.appendChild(loader);
-  
-  try {
-    await render(url);
-  } finally {
-    // Remove loading indicator
-    if (seeMoreButtonContainer.contains(loader)) {
-      seeMoreButtonContainer.removeChild(loader);
-    }
-  }
-};
+// Initialization
+document.addEventListener('DOMContentLoaded', async () => {
+  document.head.appendChild(createElement('link', [], '', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap' }));
 
-const showTrackDetails = async (item) => {
-  const popup = document.createElement('div');
-  popup.classList.add('dflex', 'flexcol', 'popupwindow');
-  
-  const albumImages = item.album.images;
-  const imageUrl = albumImages && albumImages.length > 0 ? albumImages[0].url : '';
-  
-  popup.innerHTML = `
-  <div class="popuplittle">
-    <button class="closepopup">X</button>
-    ${imageUrl ? `<img class="width450px" src=${imageUrl} alt="${item.name} album cover"></img>` : '<p>No image available</p>'}
-    <h1>${item.name}</h1>
-    <div class="dflex spacebetween">
-      <h4>Artist: ${item.artists[0].name}</h4>
-      <h4>Album: ${item.album.name}</h4>
+  const header = createElement('div', ['app-header'], `
+    <div class="logo-container">
+      <img src="${SPOTIFY_LOGO_URL}" alt="Spotify" class="spotify-logo">
+      <h1>Music Explorer</h1>
     </div>
-    <div class="dflex spacebetween">
-      <h4>Listen on Spotify: <a href="${item.external_urls.spotify}" target="_blank">Link</a></h4>
-      <h4>Release date: ${item.album.release_date}</h4>
-    </div>
-    <div class="track-details">
-      <h3>Track Details</h3>
-      <p>Duration: ${Math.floor(item.duration_ms / 60000)}:${(((item.duration_ms % 60000) / 1000).toFixed(0)).padStart(2, '0')}</p>
-      <p>Popularity: ${item.popularity}/100</p>
-      ${item.explicit ? '<p class="explicit-tag">Explicit</p>' : ''}
-    </div>
-  </div>
-  `;
-  document.querySelector('body').appendChild(popup);
+  `);
+  document.body.prepend(header);
 
-  // Add animation class after popup is added to DOM
-  setTimeout(() => {
-    popup.classList.add('popup-active');
-  }, 10);
+  form.appendChild(createElement('button', ['search-button'], 'Search'));
 
-  // popup to close
-  const closepopup = popup.querySelector('.closepopup');
-  closepopup.addEventListener('click', () => {
-    // Add closing animation
-    popup.classList.add('popup-closing');
-    setTimeout(() => {
-      document.querySelector('body').removeChild(popup);
-    }, 300);
-  });
-};
-
-// Add a function to check if the Spotify API token is valid
-const checkApiConnection = async () => {
-  try {
-    await getToken();
-    return true;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('API connection check failed:', error);
-    return false;
-  }
-};
-
-// Add dark mode toggle functionality
-const addDarkModeToggle = () => {
-  const toggle = document.createElement('button');
-  toggle.classList.add('theme-toggle');
-  toggle.innerHTML = '🌓';
-  toggle.setAttribute('aria-label', 'Toggle dark mode');
+  const toggle = createElement('button', ['theme-toggle'], '🌓', { 'aria-label': 'Toggle dark mode' });
   document.body.appendChild(toggle);
-  
   toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
   });
-  
-  // Check for saved preference
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-theme');
-  }
-};
+  if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-theme');
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // Add a header with logo if it doesn't exist
-  if (!document.querySelector('.app-header')) {
-    const header = document.createElement('div');
-    header.classList.add('app-header');
-    header.innerHTML = `
-      <div class="logo-container">
-        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png" alt="Spotify" class="spotify-logo">
-        <h1>Music Explorer</h1>
-      </div>
-    `;
-    document.body.prepend(header);
-  }
-  
-  // Add search button (simplified - no need to check for existing buttons)
-  const searchButton = document.createElement('button');
-  searchButton.textContent = 'Search';
-  searchButton.classList.add('search-button');
-  formtolookartist.appendChild(searchButton);
-  
-  // Add dark mode toggle
-  addDarkModeToggle();
-  
-  // Add accessibility skip link
-  const skipLink = document.createElement('a');
-  skipLink.href = '#musiccontainer';
-  skipLink.classList.add('skip-link');
-  skipLink.textContent = 'Skip to content';
-  document.body.prepend(skipLink);
-  
-  // Check API connection before rendering
-  const isConnected = await checkApiConnection();
-  
-  if (isConnected) {
-    await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
-  } else {
-    const errorMessage = document.createElement('div');
-    errorMessage.classList.add('api-error');
-    errorMessage.innerHTML = `
+  document.body.prepend(createElement('a', ['skip-link'], 'Skip to content', { href: '#musiccontainer' }));
+
+  try {
+    await getToken();
+    await renderTracks(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
+  } catch (error) {
+    musicContainer.appendChild(createElement('div', ['api-error'], `
       <h2>Connection Error</h2>
-      <p>Unable to connect to Spotify API. Please check your internet connection and try again.</p>
+      <p>Unable to connect to Spotify API: ${error.message}. Please check your internet connection and try again.</p>
       <button class="retry-button">Retry Connection</button>
-    `;
-    musiccontainer.appendChild(errorMessage);
-    
-    const retryButton = errorMessage.querySelector('.retry-button');
-    retryButton.addEventListener('click', async () => {
-      errorMessage.remove();
-      const retryConnection = await checkApiConnection();
-      if (retryConnection) {
-        await render(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
-      } else {
-        musiccontainer.appendChild(errorMessage);
-      }
-    });
+    `));
+    musicContainer.querySelector('.retry-button').addEventListener('click', () => window.location.reload());
   }
 });
