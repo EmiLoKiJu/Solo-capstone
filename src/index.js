@@ -1,7 +1,6 @@
 import './style.css';
 import getToken from './modules/getkey.js';
 import getdata from './modules/getdata.js';
-import songelementcounter from './modules/songelementcounter.js';
 
 // Constants
 const SPOTIFY_LOGO_URL = 'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png';
@@ -10,7 +9,7 @@ const DEFAULT_ARTIST = 'Linkin Park';
 // DOM Elements
 const musicContainer = document.querySelector('.musiccontainer');
 const seeMoreButtonContainer = document.querySelector('.seeMoreButtonContainer');
-const counterContainer = document.querySelector('h2');
+// Remove counterContainer reference
 const form = document.querySelector('form');
 const inputElement = document.querySelector('.textinput');
 
@@ -105,7 +104,7 @@ const renderTracks = async (url) => {
       songElement.querySelector('.details-button').addEventListener('click', () => showTrackDetails(track));
     });
 
-    songelementcounter(counterContainer);
+    // Remove the song counter code that was here
 
     if (tracks.next) {
       const seeMore = createElement('div', ['seemore'], '<button class="buttonSeeMore">See More Songs</button>');
@@ -134,7 +133,7 @@ form.addEventListener('submit', async (e) => {
   artistName = newArtist;
   musicContainer.innerHTML = '';
   seeMoreButtonContainer.innerHTML = '';
-  counterContainer.querySelector('h3')?.remove();
+  // Remove the line that removes the counter
   await renderTracks(`https://api.spotify.com/v1/search?q=${artistName}&type=track`);
   inputElement.value = '';
 });
