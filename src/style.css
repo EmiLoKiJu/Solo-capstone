@@ -1,28 +1,674 @@
+:root {
+  --primary-color: #1db954;  /* Spotify green */
+  --secondary-color: #191414; /* Spotify black */
+  --text-color: #333;
+  --light-bg: #f5f5f5;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   text-align: center;
-  font-family: 'Crete Round', sans-serif;
+  font-family: 'Montserrat', 'Crete Round', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+  transition: background-color var(--transition-speed);
 }
 
-img {
+audio {
+  width: 100%;
+  margin: 15px 0;
+}
+
+footer {
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+  color: #666;
+}
+
+header,
+.app-header {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  animation: fadeInStagger 0.5s forwards;
+}
+
+.app-header {
+  animation: fadeIn 0.8s;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.spotify-logo {
+  height: 30px;
+  width: auto;
+  margin-right: 15px;
+  animation: fadeInRight 0.8s;
+}
+
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInStagger 0.5s forwards 0.1s;
+}
+
+.textinput {
+  width: 70%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all var(--transition-speed);
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.textinput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(29, 185, 84, 0.5);
+}
+
+button {
+  position: relative;
+}
+
+form button {
+  padding: 12px 25px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+form button:hover {
+  background-color: #18a449;
+  transform: translateY(-2px);
+}
+
+.musiccontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.songelementcontainer {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  min-height: 400px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.songelementcontainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.songelementcontainer p {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0;
+  color: var(--secondary-color);
+}
+
+.songelementcontainer img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 5px;
+  margin: 15px 0;
+  object-fit: cover;
+}
+
+.song-element-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.song-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+}
+
+.song-artist {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.no-preview {
+  color: #888;
+  font-style: italic;
+  margin: 15px 0;
+}
+
+a {
+  transition: all 0.2s;
+}
+
+a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.no-preview a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.no-preview a:hover {
+  text-decoration: underline;
+}
+
+.likescontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.details-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all var(--transition-speed);
+  width: 80%;
+}
+
+.details-button:hover {
+  background-color: #18a449;
+  transform: scale(1.05);
+}
+
+.track-details {
+  background-color: rgba(29, 185, 84, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.track-details h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.track-details p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.explicit-tag {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.popupwindow {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: scale-down; /* other options: 'cover''' */
-}
-
-.dflex {
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-}
-
-.flexcol {
-  flex-direction: column;
-}
-
-.dgrid3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-}
-
-.songelementontainer {
+  justify-content: center;
   align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+.popuplittle {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 90%;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform var(--transition-speed);
+}
+
+.popup-active {
+  opacity: 1;
+}
+
+.popup-active .popuplittle {
+  transform: scale(1);
+}
+
+.popup-closing {
+  opacity: 0;
+  animation: fadeOut 0.3s forwards;
+}
+
+.popup-closing .popuplittle {
+  transform: scale(0.9);
+}
+
+.closepopup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all var(--transition-speed);
+}
+
+.closepopup:hover {
+  background-color: #333;
+  transform: scale(1.1);
+}
+
+.width450px {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+body.dark-theme {
+  --light-bg: #121212;
+  --text-color: #e0e0e0;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  color: var(--text-color);
+}
+
+body.dark-theme .popuplittle {
+  background-color: #282828;
+  color: var(--text-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.buttonSeeMore {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  margin: 30px 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.3);
+  display: inline-block;
+}
+
+.buttonSeeMore:hover {
+  background-color: #18a449;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(29, 185, 84, 0.4);
+}
+
+.buttonSeeMore:active {
+  transform: translateY(-1px);
+}
+
+body.dark-theme .buttonSeeMore {
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.5);
+}
+
+.seemore {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0 40px;
+  animation: fadeIn 0.5s;
+}
+
+.seeMoreButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.postcomment {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all var(--transition-speed);
+}
+
+.postcomment:hover {
+  background-color: #18a449;
+  transform: translateY(-2px);
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  grid-column: 1 / -1;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(29, 185, 84, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.like-button-active {
+  animation: pulse 0.5s;
+}
+
+.likes {
+  transition: all 0.3s;
+}
+
+.like-updated {
+  animation: highlight 1s;
+}
+
+.error-message {
+  background-color: #fdd;
+  color: #d8000c;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+
+.retry-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.retry-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.5s;
+}
+
+body.dark-theme .no-results {
+  background-color: #282828;
+  color: var(--text-color);
+}
+
+#comment {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+body.dark-theme #comment {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: all var(--transition-speed);
+}
+
+.theme-toggle:hover {
+  transform: rotate(30deg);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+h2 {
+  animation: fadeInStagger 0.5s forwards;
+  animation-delay: 0.2s;
+}
+
+/* Dark theme styles */
+body.dark-theme .songelementcontainer {
+  background-color: #282828;
+  color: var(--text-color);
+}
+
+body.dark-theme .songelementcontainer p {
+  color: #e0e0e0;
+}
+
+body.dark-theme .song-title {
+  color: #e0e0e0;
+}
+
+body.dark-theme .song-artist {
+  color: #aaa;
+}
+
+body.dark-theme .track-details {
+  background-color: rgba(29, 185, 84, 0.2);
+}
+
+body.dark-theme .track-details h3 {
+  color: #1ed760;
+}
+
+body.dark-theme .popuplittle h1 {
+  color: #e0e0e0;
+}
+
+body.dark-theme #myForm label {
+  color: #e0e0e0;
+}
+
+body.dark-theme #myForm input {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark-theme .overflowauto {
+  border-color: #555;
+  background-color: #333;
+}
+
+body.dark-theme .commentelement {
+  border-bottom-color: #444;
+  color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .details-button {
+    width: 100%;
+  }
+
+  .track-details {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .track-details h3 {
+    font-size: 18px;
+  }
+
+  .track-details p {
+    font-size: 14px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+  }
+
+  100% {
+    background-color: var(--secondary-color);
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
