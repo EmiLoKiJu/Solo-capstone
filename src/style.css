@@ -1,160 +1,759 @@
+:root {
+  --primary-color: #1DB954;  /* Spotify green */
+  --secondary-color: #191414; /* Spotify black */
+  --text-color: #333;
+  --light-bg: #f5f5f5;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   text-align: center;
-  font-family: 'Crete Round', sans-serif;
+  font-family: 'Montserrat', 'Crete Round', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+  transition: background-color var(--transition-speed);
+}
+
+.app-header {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin-bottom: 30px;
+  animation: fadeIn 0.8s;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.spotify-logo {
+  height: 30px; /* Reduced from 40px */
+  width: auto;
+  margin-right: 15px;
+  animation: fadeInRight 0.8s;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 header {
-  width: 40%;
-  justify-content: center;
-  padding-right: 5%;
-}
-
-footer {
-  margin-bottom: 32px;
-}
-
-img {
-  object-fit: contain;
-}
-
-h1 {
-  padding: 0;
-  margin: 0;
-}
-
-h3 {
-  margin: 0 8px;
-  font-size: 30px;
-}
-
-h2 {
-  margin: 12px 12px;
-  font-size: 30px;
-}
-
-h4 {
-  margin: 0 8px;
-  font-size: 20px;
-  font-weight: 100;
-}
-
-p {
-  margin: 0;
-}
-
-.dflex {
-  display: flex;
-}
-
-.spacebetween {
-  justify-content: space-between;
   width: 100%;
-}
-
-.flexcol {
+  max-width: 1200px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
   flex-direction: column;
-}
-
-.dgrid3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  width: 80%;
-}
-
-.acenter {
   align-items: center;
 }
 
-.jcenter {
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-.width450px {
-  max-width: 450px;
+.textinput {
+  width: 70%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all var(--transition-speed);
+  outline: none;
+  margin-bottom: 15px; /* Add bottom margin for vertical spacing */
 }
 
-.noDiv {
-  padding: 0;
-  margin: 0;
+.textinput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(29, 185, 84, 0.5);
+}
+
+form button {
+  padding: 12px 25px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  margin-left: 10px; /* Restore original left margin */
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+form button:hover {
+  background-color: #18a449;
+  transform: translateY(-2px);
+}
+
+.musiccontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .songelementcontainer {
-  align-items: center;
-  height: 530px;
-}
-
-.spotifyicon {
-  width: 64px;
-  margin: 0 10%;
-}
-
-.likebutton {
-  height: 24px;
-  margin: 0 8px;
-}
-
-.spanline1 {
-  background-color: #001f3f;
-  height: 2px;
-  width: 60%;
-  margin: 32px 0;
-}
-
-.popupwindow {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  border: 2px solid black;
-  padding: 32px;
-  background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
-  backdrop-filter: blur(8px); /* Apply blur effect */
-  overflow-y: hidden;
-}
-
-.closepopup {
-  position: absolute;
-  right: 128px;
-}
-
-.overflowauto {
-  height: 70px;
-  overflow: auto;
-  margin: 12px;
-  border: 2px solid black;
-  width: 95%;
-}
-
-.commentscontainer {
-  width: 100%;
-}
-
-.popuplittle {
   background-color: white;
-  width: 85%;
-  height: 85%;
-  padding: 24px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  height: auto;
+  min-height: 400px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.songelementcontainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.songelementcontainer p {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0;
+  color: var(--secondary-color);
+}
+
+.songelementcontainer img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 5px;
+  margin: 15px 0;
+  object-fit: cover;
+}
+
+audio {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.no-preview {
+  color: #888;
+  font-style: italic;
+  margin: 15px 0;
+}
+
+.no-preview a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.no-preview a:hover {
+  text-decoration: underline;
 }
 
 .likescontainer {
-  margin: 16px;
-}
-
-.seeMoreButtonContainer {
-  width: 50%;
-}
-
-.seemore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
   width: 100%;
 }
 
+/* Replace like/comment button with details button */
+.details-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all var(--transition-speed);
+  width: 80%;
+}
+
+.details-button:hover {
+  background-color: #18a449;
+  transform: scale(1.05);
+}
+
+/* Remove like/comment related styles */
+/* These styles can be completely removed:
+.likescontainer,
+.likes,
+.likebutton,
+.commentbutton,
+.like-button-active,
+.like-icon,
+.like-updated,
+.commentscounter,
+.commentscontainer,
+.overflowauto,
+.commentelement,
+#myForm,
+.postcomment {
+  display: none;
+}
+*/
+
+/* Add track details styles */
+.track-details {
+  background-color: rgba(29, 185, 84, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.track-details h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.track-details p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.explicit-tag {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Update popup styles */
+.popuplittle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popuplittle h1 {
+  margin: 15px 0;
+  font-size: 28px;
+  color: var(--secondary-color);
+}
+
+.popuplittle .dflex.spacebetween {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* Dark theme updates */
+body.dark-theme .track-details {
+  background-color: rgba(29, 185, 84, 0.2);
+}
+
+body.dark-theme .track-details h3 {
+  color: #1ed760;
+}
+
+body.dark-theme .popuplittle h1 {
+  color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .details-button {
+    width: 100%;
+  }
+  
+  .track-details {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .track-details h3 {
+    font-size: 18px;
+  }
+  
+  .track-details p {
+    font-size: 14px;
+  }
+}
+
 .buttonSeeMore {
-  width: 50%;
-  height: 36px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  margin: 30px 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.3);
+  display: inline-block;
+}
+
+.buttonSeeMore:hover {
+  background-color: #18a449;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(29, 185, 84, 0.4);
+}
+
+.buttonSeeMore:active {
+  transform: translateY(-1px);
+}
+
+.seemore {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0 40px;
+  animation: fadeIn 0.5s;
+}
+
+.seeMoreButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Dark theme adjustments for the button */
+body.dark-theme .buttonSeeMore {
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.5);
+}
+
+.postcomment {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all var(--transition-speed);
+}
+
+.postcomment:hover {
+  background-color: #18a449;
+  transform: translateY(-2px);
+}
+
+footer {
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+  color: #666;
+}
+
+/* Loading animations */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  grid-column: 1 / -1;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(29, 185, 84, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Song element animations */
+.songelementcontainer {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.song-element-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Like button animation */
+.like-button-active {
+  animation: pulse 0.5s;
+}
+
+/* Remove unused animations */
+/* These animations can be removed:
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.like-icon {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.likebutton:hover .like-icon {
+  transform: scale(1.2);
+}
+
+/* Like counter animation */
+.likes {
+  transition: all 0.3s;
+}
+
+.like-updated {
+  animation: highlight 1s;
+}
+
+@keyframes highlight {
+  0% { background-color: var(--primary-color); transform: scale(1.2); }
+  100% { background-color: var(--secondary-color); transform: scale(1); }
+}
+*/
+
+/* Popup animations */
+.popup-active {
+  opacity: 1;
+}
+
+.popup-closing {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Error and notification styles */
+.error-message {
+  background-color: #ffdddd;
+  color: #d8000c;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+
+.retry-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.retry-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.5s;
+}
+
+/* App header and logo */
+.app-header {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin-bottom: 30px;
+  animation: fadeIn 0.8s;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.spotify-logo {
+  height: 40px;
+  margin-right: 15px;
+  animation: fadeInRight 0.8s;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Song details */
+.song-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+}
+
+.song-artist {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+/* Comment textarea */
+#comment {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: all var(--transition-speed);
+}
+
+.theme-toggle:hover {
+  transform: rotate(30deg);
+}
+
+/* Dark theme */
+body.dark-theme {
+  --light-bg: #121212;
+  --text-color: #e0e0e0;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+}
+
+body.dark-theme .songelementcontainer,
+body.dark-theme .popuplittle,
+body.dark-theme .no-results {
+  background-color: #282828;
+  color: var(--text-color);
+}
+
+body.dark-theme .songelementcontainer p,
+body.dark-theme .song-title {
+  color: #e0e0e0;
+}
+
+body.dark-theme .song-artist {
+  color: #aaa;
+}
+
+body.dark-theme #myForm label {
+  color: #e0e0e0;
+}
+
+body.dark-theme #myForm input,
+body.dark-theme #comment {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark-theme .overflowauto {
+  border-color: #555;
+  background-color: #333;
+}
+
+body.dark-theme .commentelement {
+  border-bottom-color: #444;
+  color: #e0e0e0;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+  .dflex.spacebetween {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dflex.spacebetween h4 {
+    margin-bottom: 10px;
+  }
+  
+  .closepopup {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .songelementcontainer {
+    padding: 15px;
+  }
+  
+  .songelementcontainer p {
+    font-size: 16px;
+  }
+  
+  .likebutton, .commentbutton {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .commentscounter {
+    font-size: 20px;
+  }
+  
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Accessibility improvements */
+button, a {
+  position: relative;
+}
+
+button:focus, a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Animations for page load */
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header, form, h2 {
+  animation: fadeInStagger 0.5s forwards;
+}
+
+form {
+  animation-delay: 0.1s;
+}
+
+h2 {
+  animation-delay: 0.2s;
+}
+
+/* Hover effects for interactive elements */
+a, button {
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: var(--primary-color);
 }
